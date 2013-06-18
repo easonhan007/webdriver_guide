@@ -17,7 +17,26 @@ puts dr.find_element(:tag_name, 'form')[:class]
 # by class_name
 e = dr.find_element(:class, 'controls')
 dr.execute_script('$(arguments[0]).fadeOut().fadeIn()', e)
+sleep 1
 
-sleep 5
+# by link text
+link = dr.find_element(:link_text, 'register')
+dr.execute_script('$(arguments[0]).fadeOut().fadeIn()', link)
+sleep 1
+
+# by partial link text
+link = dr.find_element(:partial_link_text, 'reg')
+dr.execute_script('$(arguments[0]).fadeOut().fadeIn()', link)
+sleep 1
+
+# by css selector
+div = dr.find_element(:css, '.controls')
+dr.execute_script('$(arguments[0]).fadeOut().fadeIn()', div)
+sleep 1
+
+# by xpath
+dr.find_element(:xpath, '/html/body/form/div[3]/div/label/input').click
+
+sleep 2
 dr.quit
 
