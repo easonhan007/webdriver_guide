@@ -12,7 +12,7 @@
 代码
 ====
 下面的代码演示了如何点击元素，如何往文本框中输入文字以及如何清空文字。
-### level_locate.html
+### operate_element.html
 ```
 	<html>
 		<head>
@@ -56,7 +56,7 @@
 	</html>
 ```
 
-### operate_element.rb.rb
+### operate_element.rb
 ```
 	#encoding: utf-8
 	require 'selenium-webdriver'
