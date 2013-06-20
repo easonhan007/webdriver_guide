@@ -1,0 +1,36 @@
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+		<title>button dropdown</title>		
+		<script type="text/javascript" async="" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+		<link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" />		
+		<script type="text/javascript">
+			$(document).ready(
+				function(){
+					$('.dropdown-menu').find('a').first().click(function(){ alert('watir-webdriver is better than selenium-webdriver'); });
+				}
+			);
+		</script>
+	</head>
+	<body>
+		<h3>button dropdown</h3>
+		<div class="row-fluid">
+			<div class="span3">		
+				<div class="well">
+					<div class="btn-group">
+						<a class="btn dropdown-toggle btn-info" data-toggle="dropdown" href="#">
+							Info
+							<span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu">
+							<li><a href="#">watir-webdriver</a></li>
+							<li><a href="#">better than</a></li>
+							<li><a href="#">selenium-webdriver</a></li>
+						</ul>
+					</div>
+				</div>			
+			</div>		
+		</div>		
+	</body>
+	<script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+</html>

@@ -1,0 +1,36 @@
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+		<title>Pagination</title>		
+		<script type="text/javascript" async="" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+		<link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" />		
+		<script type="text/javascript">
+			$(document).ready(function(){
+				$('.pagination').find('li').click(function(){
+					$(this).parent().find('li').removeClass('active');
+					$(this).addClass('active');
+				});
+			});
+		</script>
+	</head>
+		
+	<body>
+		<h3>Pagination</h3>
+		<div class="row-fluid">
+			<div class="span6">		
+				<div class="pagination pagination-large">
+					<ul>
+						<li><a href="#">Prev</a></li>
+						<li class="active"><a href="#">1</a></li>
+						<li><a href="#">2</a></li>
+						<li><a href="#">3</a></li>
+						<li><a href="#">4</a></li>
+						<li><a href="#">5</a></li>
+						<li><a href="#">Next</a></li>
+					</ul>
+				</div>
+			</div>		
+		</div>		
+	</body>
+	<script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+</html>
