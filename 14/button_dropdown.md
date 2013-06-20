@@ -44,7 +44,7 @@ button dropdown就是把按钮和下拉菜单弄到了一起。处理这种对�
 	</html>
 ```
 
-### button_group.rb
+### button_dropdown.rb
 ```
 	#encoding: utf-8
 	require 'selenium-webdriver'
