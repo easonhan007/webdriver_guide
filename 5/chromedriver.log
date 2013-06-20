@@ -1,0 +1,57 @@
+[0.001][INFO]:      ChromeDriver 26.0.1383.0 /Users/eason/.rvm/rubies/ruby-1.9.3-p392/bin/chromedriver
+[0.972][FINE]:      Initializing session with capabilities {
+   "browserName": "chrome",
+   "chromeOptions": {
+      "args": [  ],
+      "extensions": [  ]
+   },
+   "javascriptEnabled": true,
+   "platform": "ANY",
+   "version": ""
+}
+
+[0.974][INFO]:      Launching chrome: /Applications/Google Chrome.app/Contents/MacOS/Google Chrome --disable-hang-monitor --disable-prompt-on-repost --dom-automation --full-memory-crash-report --no-default-browser-check --no-first-run --disable-background-networking --disable-sync --disable-translate --disable-web-resources --safebrowsing-disable-auto-update --safebrowsing-disable-download-protection --disable-client-side-phishing-detection --disable-component-update --disable-default-apps --enable-logging --log-level=1 --use-mock-keychain --ignore-certificate-errors about:blank
+[1.757][INFO]:      Connected to Chrome successfully. Version: 26.0.1410.65
+[1.768][FINE]:      Command received (/session/170f72c72c8eeb9a75f063c9510768dc)
+[1.768][FINE]:      Command finished (/session/170f72c72c8eeb9a75f063c9510768dc) with response {
+   "sessionId": "170f72c72c8eeb9a75f063c9510768dc",
+   "status": 0,
+   "value": {
+      "acceptSslCerts": false,
+      "applicationCacheEnabled": false,
+      "browserConnectionEnabled": false,
+      "browserName": "chrome",
+      "chrome.chromedriverVersion": "26.0.1383.0",
+      "cssSelectorsEnabled": true,
+      "databaseEnabled": false,
+      "handlesAlerts": true,
+      "javascriptEnabled": true,
+      "locationContextEnabled": false,
+      "nativeEvents": true,
+      "platform": "mac",
+      "rotatable": false,
+      "takesScreenshot": true,
+      "version": "26.0.1410.65",
+      "webStorageEnabled": true
+   }
+}
+
+[1.786][FINE]:      Command received (/session/170f72c72c8eeb9a75f063c9510768dc/url) with params {
+   "sessionId": "170f72c72c8eeb9a75f063c9510768dc",
+   "url": "http://www.baidu.com"
+}
+
+[1.786][FINER]:     Waiting for all views to stop loading...
+[1.787][FINER]:     Done waiting for all views to stop loading
+[2.636][FINER]:     Waiting for all views to stop loading...
+[2.637][FINER]:     Done waiting for all views to stop loading
+[2.637][FINE]:      Command finished (/session/170f72c72c8eeb9a75f063c9510768dc/url) with response {
+   "sessionId": "170f72c72c8eeb9a75f063c9510768dc",
+   "status": 0,
+   "value": {
+
+   }
+}
+
+[7.640][FINE]:      Command received (/session/170f72c72c8eeb9a75f063c9510768dc)
+[7.723][INFO]:      Chrome shutdown
