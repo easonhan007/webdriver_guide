@@ -1,0 +1,109 @@
+[0.000][INFO]:      ChromeDriver 26.0.1383.0 /Users/eason/.rvm/rubies/ruby-1.9.3-p392/bin/chromedriver
+[0.235][FINE]:      Initializing session with capabilities {
+   "browserName": "chrome",
+   "chrome.detach": true,
+   "chromeOptions": {
+      "detach": true
+   },
+   "cssSelectorsEnabled": true,
+   "javascriptEnabled": true,
+   "nativeEvents": false,
+   "platform": "ANY",
+   "rotatable": false,
+   "takesScreenshot": false,
+   "version": ""
+}
+
+[0.236][INFO]:      Using named testing interface
+[0.640][INFO]:      Connected to Chrome successfully. Version: 26.0.1410.65
+[0.648][FINE]:      Command received (/session/9017e1d6875d812fd299a9a5d83b663c)
+[0.648][FINE]:      Command finished (/session/9017e1d6875d812fd299a9a5d83b663c) with response {
+   "sessionId": "9017e1d6875d812fd299a9a5d83b663c",
+   "status": 0,
+   "value": {
+      "acceptSslCerts": false,
+      "applicationCacheEnabled": false,
+      "browserConnectionEnabled": false,
+      "browserName": "chrome",
+      "chrome.chromedriverVersion": "26.0.1383.0",
+      "cssSelectorsEnabled": true,
+      "databaseEnabled": false,
+      "handlesAlerts": true,
+      "javascriptEnabled": true,
+      "locationContextEnabled": false,
+      "nativeEvents": true,
+      "platform": "mac",
+      "rotatable": false,
+      "takesScreenshot": true,
+      "version": "26.0.1410.65",
+      "webStorageEnabled": true
+   }
+}
+
+[0.649][FINE]:      Command received (/session/9017e1d6875d812fd299a9a5d83b663c/url) with params {
+   "url": "file:////Users/eason/Documents/webdriver_guide/23/js.html"
+}
+
+[0.649][FINER]:     Waiting for all views to stop loading...
+[0.649][FINER]:     Done waiting for all views to stop loading
+[1.667][FINER]:     Waiting for all views to stop loading...
+[1.667][FINER]:     Done waiting for all views to stop loading
+[1.667][FINE]:      Command finished (/session/9017e1d6875d812fd299a9a5d83b663c/url) with response {
+   "sessionId": "9017e1d6875d812fd299a9a5d83b663c",
+   "status": 0,
+   "value": {
+
+   }
+}
+
+[1.669][FINE]:      Command received (/session/9017e1d6875d812fd299a9a5d83b663c/execute) with params {
+   "args": [  ],
+   "script": "$(\"#tooltip\").fadeOut();"
+}
+
+[1.669][FINER]:     Waiting for all views to stop loading...
+[1.669][FINER]:     Done waiting for all views to stop loading
+[1.689][FINER]:     Waiting for all views to stop loading...
+[1.689][FINER]:     Done waiting for all views to stop loading
+[1.689][FINE]:      Command finished (/session/9017e1d6875d812fd299a9a5d83b663c/execute) with response {
+   "sessionId": "9017e1d6875d812fd299a9a5d83b663c",
+   "status": 0,
+   "value": null
+}
+
+[2.692][FINE]:      Command received (/session/9017e1d6875d812fd299a9a5d83b663c/element) with params {
+   "using": "class name",
+   "value": "btn"
+}
+
+[2.692][FINER]:     Waiting for all views to stop loading...
+[2.692][FINER]:     Done waiting for all views to stop loading
+[2.774][FINER]:     Waiting for all views to stop loading...
+[2.774][FINER]:     Done waiting for all views to stop loading
+[2.774][FINE]:      Command finished (/session/9017e1d6875d812fd299a9a5d83b663c/element) with response {
+   "sessionId": "9017e1d6875d812fd299a9a5d83b663c",
+   "status": 0,
+   "value": {
+      "ELEMENT": ":wdc:1371821334248"
+   }
+}
+
+[2.775][FINE]:      Command received (/session/9017e1d6875d812fd299a9a5d83b663c/execute) with params {
+   "args": [ {
+      "ELEMENT": ":wdc:1371821334248"
+   } ],
+   "script": "$(arguments[0]).fadeOut()"
+}
+
+[2.775][FINER]:     Waiting for all views to stop loading...
+[2.775][FINER]:     Done waiting for all views to stop loading
+[2.779][FINER]:     Waiting for all views to stop loading...
+[2.779][FINER]:     Done waiting for all views to stop loading
+[2.779][FINE]:      Command finished (/session/9017e1d6875d812fd299a9a5d83b663c/execute) with response {
+   "sessionId": "9017e1d6875d812fd299a9a5d83b663c",
+   "status": 0,
+   "value": null
+}
+
+[3.781][FINE]:      Command received (/session/9017e1d6875d812fd299a9a5d83b663c)
+[3.848][INFO]:      Chrome shutdown
