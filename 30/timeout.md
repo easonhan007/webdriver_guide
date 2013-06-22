@@ -25,3 +25,13 @@ webdriver中可以设置很多的超时时间
   driver.manage.script_timeout = 3 #seconds
 
 ```
+
+讨论
+====
+由于webdriver是通过给driver发送http请求来进行每步操作的，因此就可以设置http请求的超时时间。默认ruby binding的http client超时时间是60s，你可以通过下面的代码来改变这一设置。
+
+```
+  client = Selenium::WebDriver::Remote::Http::Default.new
+  client.timeout = 120 # seconds
+  driver = Selenium::WebDriver.for(:chrome, :http_client => client)
+```
