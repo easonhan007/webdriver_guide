@@ -8,7 +8,7 @@ button dropdown就是把按钮和下拉菜单弄到了一起。处理这种对�
 代码
 ====
 下面的代码演示了如何找到watir-webdriver这个菜单项。其处理方法是先点击info按钮，然后等到下拉菜单出现后定位下拉菜单的ul元素，再定位ul元素中link text为watir-webdriver的link，并点击之。
-### button_group.html
+### button_dropdown.html
 ```
 	<html>
 		<head>
