@@ -3,17 +3,18 @@
 
 场景
 ====
-在web自动化测试中，我们需要获取测试对象的四种状态
+表单对象的操作比较简单，只需要记住下面几点
 
-* 是否显示。使用element.displayed?()方法；
-* 是否存在。使用find_element方法，捕获其抛出的异常，如果是NoSuchElement异常的话则可以确定该元素不存在；
-* 是否被选中。一般是判断表单元素，比如radio或checkbox是否被选中。使用element.selected?()方法；
-* 是否enable，也就是是否是灰化状态。使用element.enabled?()方法；
+* 使用send_keys方法往多行文本框和单行文本框赋值；
+* 使用click方法选择checkbox
+* 使用click方法选择radio
+* 使用click方法点击button
+* 使用click方法选择option，从而达到选中select下拉框中某个具体item的效果
 
 代码
 ====
 
-### status.html
+### css.html
 ```
 	<html>
 		<head>
