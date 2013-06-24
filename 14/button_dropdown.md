@@ -1,12 +1,12 @@
 处理button dropdown
-------------
+===================
 
 场景
-====
+----
 button dropdown就是把按钮和下拉菜单弄到了一起。处理这种对象的思路一般是先点击这个按钮，等待下拉菜单显示出来，然后使用层级定位方法来获取下拉菜单中的具体项。
 
 代码
-====
+----
 下面的代码演示了如何找到watir-webdriver这个菜单项。其处理方法是先点击info按钮，然后等到下拉菜单出现后定位下拉菜单的ul元素，再定位ul元素中link text为watir-webdriver的link，并点击之。
 ### button_dropdown.html
 ```
