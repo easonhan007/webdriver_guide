@@ -1,6 +1,5 @@
 #encoding: utf-8
 require 'pdfkit'
-require 'redcarpet'
 
 PDFKit.configure do |config|
   config.wkhtmltopdf = 'D:\wkhtmltopdf\wkhtmltopdf.exe'
@@ -21,25 +20,19 @@ all_in_one = 'all_in_one.md'
 md_files.each_with_index do |md, index|
 	File.open(all_in_one, 'a+') do |handle|
 		File.open(md, 'r') do |f|
-			handle.write('-' * 20) if index != 0
-			20.times { handle.puts '' } if index != 0
+			if index != 0 
+				handle.puts ''
+				handle.write('-' * 20)
+				20.times { handle.puts '' }
+			end #if
 			handle.write(f.read) 
 		end #File.open
 	end
 end
 all_in_one_html = 'all_in_one.html'
-File.open(all_in_one_html, 'w') do 
-	|f| f.write '<html>
-	<head>
-		<meta http-equiv="content-type" content="text/html;charset=utf-8" />
-		<title>Book</title>		
-		<link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" />		
-		<style>body {margin: 1.5em; font: 20px/40px 微软雅黑}</style>
-	</head>
-	<body>'
-end 
+
 system("mdt #{all_in_one} >> #{all_in_one_html}")
-File.open(all_in_one_html, 'a+') { |f| f.write'</body></html>'}
+
 
 html = File.open(all_in_one_html, 'r') { |f| f.read }
 kit = PDFKit.new(html)
