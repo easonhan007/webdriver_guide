@@ -1,7 +1,8 @@
 #encoding: utf-8
-require 'pdfkit'
-require 'redcarpet'
+#require 'pdfkit'
+#require 'redcarpet'
 
+=begin
 PDFKit.configure do |config|
   config.wkhtmltopdf = 'D:\wkhtmltopdf\wkhtmltopdf.exe'
   config.default_options = {
@@ -13,6 +14,7 @@ PDFKit.configure do |config|
   }
   # config.root_url = "http://localhost" # Use only if your external hostname is unavailable on the server.
 end
+=end
 
 md = File.join('..', '**', '*.md')
 md_files = Dir.glob(md)
@@ -28,6 +30,8 @@ md_files.each_with_index do |md, index|
 	end
 end
 all_in_one_html = 'all_in_one.html'
+
+=begin
 File.open(all_in_one_html, 'w') do 
 	|f| f.write '<html>
 	<head>
@@ -46,3 +50,4 @@ kit = PDFKit.new(html)
 kit.to_file('book.pdf')
 File.delete(all_in_one)
 File.delete(all_in_one_html)
+=end
