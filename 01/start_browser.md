@@ -7,7 +7,7 @@
 
 代码
 ----
-```
+```ruby
   require 'selenium-webdriver'
   # chrome
   dr = Selenium::WebDriver.for :chrome
