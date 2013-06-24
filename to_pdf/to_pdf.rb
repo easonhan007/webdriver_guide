@@ -41,6 +41,7 @@ File.open(all_in_one_html, 'a+') { |f| f.write'</body></html>'}
 
 html = File.open(all_in_one_html, 'r') { |f| f.read }
 kit = PDFKit.new(html)
+kit.stylesheets << './style.css'
 kit.to_file('book.pdf')
 File.delete(all_in_one)
 File.delete(all_in_one_html)
