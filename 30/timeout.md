@@ -1,8 +1,8 @@
 超时设置
-------------
+=========
 
 场景
-====
+----
 webdriver中可以设置很多的超时时间
 
 * implicit_wait。识别对象时的超时时间。过了这个时间如果对象还没找到的话就会抛出NoSuchElement异常
@@ -10,7 +10,7 @@ webdriver中可以设置很多的超时时间
 * page_load。页面加载时的超时时间。因为webdriver会等页面加载完毕在进行后面的操作，所以如果页面在这个超时时间内没有加载完成，那么webdriver就会抛出异常
 
 代码
-====
+----
 
 ```
   driver = Selenium::WebDriver.for :chrome
@@ -27,7 +27,7 @@ webdriver中可以设置很多的超时时间
 ```
 
 讨论
-====
+----
 由于webdriver是通过给driver发送http请求来进行每步操作的，因此就可以设置http请求的超时时间。默认ruby binding的http client超时时间是60s，你可以通过下面的代码来改变这一设置。
 
 ```
