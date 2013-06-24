@@ -1,0 +1,286 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//ENhttp://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>wkhtmltopdf - Manual</title>
+  <style type="text/css">
+    body {width: 70em}
+    .short {font-weight: bold; width:2em}
+    .long {font-weight: bold; width: 15em}
+    .arg {font-style: italic; width: 12em}
+    tr {vertical-align: top}
+  </style>
+</head><body><a name="wkhtmltopdf 0.11.0 rc2 Manual"><h1>wkhtmltopdf 0.11.0 rc2 Manual</h1></a>
+<p>This file documents wkhtmltopdf, a program capable of converting html documents into PDF documents.</p>
+<a name="Contact"><h1>Contact</h1></a>
+<p>If you experience bugs or want to request new features please visit <a href="http://code.google.com/p/wkhtmltopdf/issues/list">http://code.google.com/p/wkhtmltopdf/issues/list</a>, if you have any problems or comments please feel free to contact me: see <a href="http://www.madalgo.au.dk/~jakobt/#about">http://www.madalgo.au.dk/~jakobt/#about</a></p>
+<a name="Reduced Functionality"><h1>Reduced Functionality</h1></a>
+<p>Some versions of wkhtmltopdf are compiled against a version of QT without the wkhtmltopdf patches. These versions are missing some features, you can find out if your version of wkhtmltopdf is one of these by running wkhtmltopdf --version if your version is against an unpatched QT, you can use the static version to get all functionality.</p>
+<p>Currently the list of features only supported with patch QT includes:</p>
+<ul><li>Printing more then one HTML document into a PDF file.</li>
+<li>Running without an X11 server.</li>
+<li>Adding a document outline to the PDF file.</li>
+<li>Adding headers and footers to the PDF file.</li>
+<li>Generating a table of contents.</li>
+<li>Adding links in the generated PDF file.</li>
+<li>Printing using the screen media-type.</li>
+<li>Disabling the smart shrink feature of webkit.</li>
+</ul><a name="License"><h1>License</h1></a>
+<p>Copyright (C) 2010 wkhtmltopdf/wkhtmltoimage Authors.</p>
+</p>
+<p>License LGPLv3+: GNU Lesser General Public License version 3 or later <a href="http://gnu.org/licenses/lgpl.html">http://gnu.org/licenses/lgpl.html</a>. This is free software: you are free to change and redistribute it. There is NO WARRANTY, to the extent permitted by law.</p>
+<a name="Authors"><h1>Authors</h1></a>
+<p>Written by Jan Habermann, Christian Sciberras and Jakob Truelsen. Patches by Mehdi Abbad, Lyes Amazouz, Pascal Bach, Emmanuel Bouthenot, Benoit Garret and Mário Silva.</p>
+<a name="Synopsis"><h1>Synopsis</h1></a>
+<pre>wkhtmltopdf [GLOBAL OPTION]... [OBJECT]... &lt;output file&gt;
+</pre><a name="Document objects"><h1>Document objects</h1></a>
+<p>wkhtmltopdf is able to put several objects into the output file, an object is either a single webpage, a cover webpage or a table of content.  The objects are put into the output document in the order they are specified on the command line, options can be specified on a per object basis or in the global options area. Options from the <a href="#Global Options">Global Options</a> section can only be placed in the global options area</p>
+<p>A page objects puts the content of a singe webpage into the output document.</p>
+<pre>(page)? &lt;input url/file name&gt; [PAGE OPTION]...</pre><p>Options for the page object can be placed in the global options and the page options areas. The applicable options can be found in the <a href="#Page Options">Page Options</a> and <a href="#Headers And Footer Options">Headers And Footer Options</a> sections.</p>
+<p>A cover objects puts the content of a singe webpage into the output document, the page does not appear in the table of content, and does not have headers and footers.</p>
+<pre>cover &lt;input url/file name&gt; [PAGE OPTION]...</pre><p>All options that can be specified for a page object can also be specified for a cover.</p>
+<p>A table of content object inserts a table of content into the output document.</p>
+<pre>toc [TOC OPTION]...</pre><p>All options that can be specified for a page object can also be specified for a toc, further more the options from the <a href="#TOC Options">TOC Options</a> section can also be applied. The table of content is generated via XSLT which means that it can be styled to look however you want it to look. To get an aide of how to do this you can dump the default xslt document by supplying the --dump-default-toc-xsl, and the outline it works on by supplying --dump-outline, see the <a href="#Outline Options">Outline Options</a> section.</p>
+<a name="Global Options"><h1>Global Options</h1></a>
+<table>
+<tr><td class="short"></td><td class="long">--collate</td><td class="arg"></td><td class="desc">Collate when printing multiple copies (default)</td></tr>
+<tr><td class="short"></td><td class="long">--no-collate</td><td class="arg"></td><td class="desc">Do not collate when printing multiple copies</td></tr>
+<tr><td class="short"></td><td class="long">--cookie-jar</td><td class="arg">&lt;path&gt; </td><td class="desc">Read and write cookies from and to the supplied cookie jar file</td></tr>
+<tr><td class="short"></td><td class="long">--copies</td><td class="arg">&lt;number&gt; </td><td class="desc">Number of copies to print into the pdf file (default 1)</td></tr>
+<tr><td class="short">-d,</td><td class="long">--dpi</td><td class="arg">&lt;dpi&gt; </td><td class="desc">Change the dpi explicitly (this has no effect on X11 based systems)</td></tr>
+<tr><td class="short">-H,</td><td class="long">--extended-help</td><td class="arg"></td><td class="desc">Display more extensive help, detailing less common command switches</td></tr>
+<tr><td class="short">-g,</td><td class="long">--grayscale</td><td class="arg"></td><td class="desc">PDF will be generated in grayscale</td></tr>
+<tr><td class="short">-h,</td><td class="long">--help</td><td class="arg"></td><td class="desc">Display help</td></tr>
+<tr><td class="short"></td><td class="long">--htmldoc</td><td class="arg"></td><td class="desc">Output program html help</td></tr>
+<tr><td class="short"></td><td class="long">--image-dpi<span style="font-weight: normal; font-size: 80%; color:red;">*</span></td><td class="arg">&lt;integer&gt; </td><td class="desc">When embedding images scale them down to this dpi (default 600)</td></tr>
+<tr><td class="short"></td><td class="long">--image-quality<span style="font-weight: normal; font-size: 80%; color:red;">*</span></td><td class="arg">&lt;integer&gt; </td><td class="desc">When jpeg compressing images use this quality (default 94)</td></tr>
+<tr><td class="short">-l,</td><td class="long">--lowquality</td><td class="arg"></td><td class="desc">Generates lower quality pdf/ps. Useful to shrink the result document space</td></tr>
+<tr><td class="short"></td><td class="long">--manpage</td><td class="arg"></td><td class="desc">Output program man page</td></tr>
+<tr><td class="short">-B,</td><td class="long">--margin-bottom</td><td class="arg">&lt;unitreal&gt; </td><td class="desc">Set the page bottom margin (default 10mm)</td></tr>
+<tr><td class="short">-L,</td><td class="long">--margin-left</td><td class="arg">&lt;unitreal&gt; </td><td class="desc">Set the page left margin (default 10mm)</td></tr>
+<tr><td class="short">-R,</td><td class="long">--margin-right</td><td class="arg">&lt;unitreal&gt; </td><td class="desc">Set the page right margin (default 10mm)</td></tr>
+<tr><td class="short">-T,</td><td class="long">--margin-top</td><td class="arg">&lt;unitreal&gt; </td><td class="desc">Set the page top margin (default 10mm)</td></tr>
+<tr><td class="short">-O,</td><td class="long">--orientation</td><td class="arg">&lt;orientation&gt; </td><td class="desc">Set orientation to Landscape or Portrait (default Portrait)</td></tr>
+<tr><td class="short"></td><td class="long">--output-format</td><td class="arg">&lt;format&gt; </td><td class="desc">Specify an output format to use pdf or ps, instead of looking at the extention of the output filename</td></tr>
+<tr><td class="short"></td><td class="long">--page-height</td><td class="arg">&lt;unitreal&gt; </td><td class="desc">Page height</td></tr>
+<tr><td class="short">-s,</td><td class="long">--page-size</td><td class="arg">&lt;Size&gt; </td><td class="desc">Set paper size to: A4, Letter, etc. (default A4)</td></tr>
+<tr><td class="short"></td><td class="long">--page-width</td><td class="arg">&lt;unitreal&gt; </td><td class="desc">Page width</td></tr>
+<tr><td class="short"></td><td class="long">--no-pdf-compression<span style="font-weight: normal; font-size: 80%; color:red;">*</span></td><td class="arg"></td><td class="desc">Do not use lossless compression on pdf objects</td></tr>
+<tr><td class="short">-q,</td><td class="long">--quiet</td><td class="arg"></td><td class="desc">Be less verbose</td></tr>
+<tr><td class="short"></td><td class="long">--read-args-from-stdin</td><td class="arg"></td><td class="desc">Read command line arguments from stdin</td></tr>
+<tr><td class="short"></td><td class="long">--readme</td><td class="arg"></td><td class="desc">Output program readme</td></tr>
+<tr><td class="short"></td><td class="long">--title</td><td class="arg">&lt;text&gt; </td><td class="desc">The title of the generated pdf file (The title of the first document is used if not specified)</td></tr>
+<tr><td class="short">-V,</td><td class="long">--version</td><td class="arg"></td><td class="desc">Output version information an exit</td></tr>
+</table>
+<p>Items marked <span style="font-weight: normal; font-size: 80%; color:red;">*</span> are only available using patched QT.</p><a name="Outline Options"><h1>Outline Options</h1></a>
+<table>
+<tr><td class="short"></td><td class="long">--dump-default-toc-xsl<span style="font-weight: normal; font-size: 80%; color:red;">*</span></td><td class="arg"></td><td class="desc">Dump the default TOC xsl style sheet to stdout</td></tr>
+<tr><td class="short"></td><td class="long">--dump-outline<span style="font-weight: normal; font-size: 80%; color:red;">*</span></td><td class="arg">&lt;file&gt; </td><td class="desc">Dump the outline to a file</td></tr>
+<tr><td class="short"></td><td class="long">--outline<span style="font-weight: normal; font-size: 80%; color:red;">*</span></td><td class="arg"></td><td class="desc">Put an outline into the pdf (default)</td></tr>
+<tr><td class="short"></td><td class="long">--no-outline<span style="font-weight: normal; font-size: 80%; color:red;">*</span></td><td class="arg"></td><td class="desc">Do not put an outline into the pdf</td></tr>
+<tr><td class="short"></td><td class="long">--outline-depth<span style="font-weight: normal; font-size: 80%; color:red;">*</span></td><td class="arg">&lt;level&gt; </td><td class="desc">Set the depth of the outline (default 4)</td></tr>
+</table>
+<p>Items marked <span style="font-weight: normal; font-size: 80%; color:red;">*</span> are only available using patched QT.</p><a name="Page Options"><h1>Page Options</h1></a>
+<table>
+<tr><td class="short"></td><td class="long">--allow</td><td class="arg">&lt;path&gt; </td><td class="desc">Allow the file or files from the specified folder to be loaded (repeatable)</td></tr>
+<tr><td class="short"></td><td class="long">--background</td><td class="arg"></td><td class="desc">Do print background (default)</td></tr>
+<tr><td class="short"></td><td class="long">--no-background</td><td class="arg"></td><td class="desc">Do not print background</td></tr>
+<tr><td class="short"></td><td class="long">--checkbox-checked-svg</td><td class="arg">&lt;path&gt; </td><td class="desc">Use this SVG file when rendering checked checkboxes</td></tr>
+<tr><td class="short"></td><td class="long">--checkbox-svg</td><td class="arg">&lt;path&gt; </td><td class="desc">Use this SVG file when rendering unchecked checkboxes</td></tr>
+<tr><td class="short"></td><td class="long">--cookie</td><td class="arg">&lt;name&gt; &lt;value&gt; </td><td class="desc">Set an additional cookie (repeatable)</td></tr>
+<tr><td class="short"></td><td class="long">--custom-header</td><td class="arg">&lt;name&gt; &lt;value&gt; </td><td class="desc">Set an additional HTTP header (repeatable)</td></tr>
+<tr><td class="short"></td><td class="long">--custom-header-propagation</td><td class="arg"></td><td class="desc">Add HTTP headers specified by --custom-header for each resource request.</td></tr>
+<tr><td class="short"></td><td class="long">--no-custom-header-propagation</td><td class="arg"></td><td class="desc">Do not add HTTP headers specified by --custom-header for each resource request.</td></tr>
+<tr><td class="short"></td><td class="long">--debug-javascript</td><td class="arg"></td><td class="desc">Show javascript debugging output</td></tr>
+<tr><td class="short"></td><td class="long">--no-debug-javascript</td><td class="arg"></td><td class="desc">Do not show javascript debugging output (default)</td></tr>
+<tr><td class="short"></td><td class="long">--default-header<span style="font-weight: normal; font-size: 80%; color:red;">*</span></td><td class="arg"></td><td class="desc">Add a default header, with the name of the page to the left, and the page number to the right, this is short for: --header-left='[webpage]' --header-right='[page]/[toPage]' --top 2cm --header-line</td></tr>
+<tr><td class="short"></td><td class="long">--encoding</td><td class="arg">&lt;encoding&gt; </td><td class="desc">Set the default text encoding, for input</td></tr>
+<tr><td class="short"></td><td class="long">--disable-external-links<span style="font-weight: normal; font-size: 80%; color:red;">*</span></td><td class="arg"></td><td class="desc">Do not make links to remote web pages</td></tr>
+<tr><td class="short"></td><td class="long">--enable-external-links<span style="font-weight: normal; font-size: 80%; color:red;">*</span></td><td class="arg"></td><td class="desc">Make links to remote web pages (default)</td></tr>
+<tr><td class="short"></td><td class="long">--disable-forms<span style="font-weight: normal; font-size: 80%; color:red;">*</span></td><td class="arg"></td><td class="desc">Do not turn HTML form fields into pdf form fields (default)</td></tr>
+<tr><td class="short"></td><td class="long">--enable-forms<span style="font-weight: normal; font-size: 80%; color:red;">*</span></td><td class="arg"></td><td class="desc">Turn HTML form fields into pdf form fields</td></tr>
+<tr><td class="short"></td><td class="long">--images</td><td class="arg"></td><td class="desc">Do load or print images (default)</td></tr>
+<tr><td class="short"></td><td class="long">--no-images</td><td class="arg"></td><td class="desc">Do not load or print images</td></tr>
+<tr><td class="short"></td><td class="long">--disable-internal-links<span style="font-weight: normal; font-size: 80%; color:red;">*</span></td><td class="arg"></td><td class="desc">Do not make local links</td></tr>
+<tr><td class="short"></td><td class="long">--enable-internal-links<span style="font-weight: normal; font-size: 80%; color:red;">*</span></td><td class="arg"></td><td class="desc">Make local links (default)</td></tr>
+<tr><td class="short">-n,</td><td class="long">--disable-javascript</td><td class="arg"></td><td class="desc">Do not allow web pages to run javascript</td></tr>
+<tr><td class="short"></td><td class="long">--enable-javascript</td><td class="arg"></td><td class="desc">Do allow web pages to run javascript (default)</td></tr>
+<tr><td class="short"></td><td class="long">--javascript-delay</td><td class="arg">&lt;msec&gt; </td><td class="desc">Wait some milliseconds for javascript finish (default 200)</td></tr>
+<tr><td class="short"></td><td class="long">--load-error-handling</td><td class="arg">&lt;handler&gt; </td><td class="desc">Specify how to handle pages that fail to load: abort, ignore or skip (default abort)</td></tr>
+<tr><td class="short"></td><td class="long">--disable-local-file-access</td><td class="arg"></td><td class="desc">Do not allowed conversion of a local file to read in other local files, unless explecitily allowed with --allow</td></tr>
+<tr><td class="short"></td><td class="long">--enable-local-file-access</td><td class="arg"></td><td class="desc">Allowed conversion of a local file to read in other local files. (default)</td></tr>
+<tr><td class="short"></td><td class="long">--minimum-font-size</td><td class="arg">&lt;int&gt; </td><td class="desc">Minimum font size</td></tr>
+<tr><td class="short"></td><td class="long">--exclude-from-outline<span style="font-weight: normal; font-size: 80%; color:red;">*</span></td><td class="arg"></td><td class="desc">Do not include the page in the table of contents and outlines</td></tr>
+<tr><td class="short"></td><td class="long">--include-in-outline<span style="font-weight: normal; font-size: 80%; color:red;">*</span></td><td class="arg"></td><td class="desc">Include the page in the table of contents and outlines (default)</td></tr>
+<tr><td class="short"></td><td class="long">--page-offset</td><td class="arg">&lt;offset&gt; </td><td class="desc">Set the starting page number (default 0)</td></tr>
+<tr><td class="short"></td><td class="long">--password</td><td class="arg">&lt;password&gt; </td><td class="desc">HTTP Authentication password</td></tr>
+<tr><td class="short"></td><td class="long">--disable-plugins</td><td class="arg"></td><td class="desc">Disable installed plugins (default)</td></tr>
+<tr><td class="short"></td><td class="long">--enable-plugins</td><td class="arg"></td><td class="desc">Enable installed plugins (plugins will likely not work)</td></tr>
+<tr><td class="short"></td><td class="long">--post</td><td class="arg">&lt;name&gt; &lt;value&gt; </td><td class="desc">Add an additional post field (repeatable)</td></tr>
+<tr><td class="short"></td><td class="long">--post-file</td><td class="arg">&lt;name&gt; &lt;path&gt; </td><td class="desc">Post an additional file (repeatable)</td></tr>
+<tr><td class="short"></td><td class="long">--print-media-type<span style="font-weight: normal; font-size: 80%; color:red;">*</span></td><td class="arg"></td><td class="desc">Use print media-type instead of screen</td></tr>
+<tr><td class="short"></td><td class="long">--no-print-media-type<span style="font-weight: normal; font-size: 80%; color:red;">*</span></td><td class="arg"></td><td class="desc">Do not use print media-type instead of screen (default)</td></tr>
+<tr><td class="short">-p,</td><td class="long">--proxy</td><td class="arg">&lt;proxy&gt; </td><td class="desc">Use a proxy</td></tr>
+<tr><td class="short"></td><td class="long">--radiobutton-checked-svg</td><td class="arg">&lt;path&gt; </td><td class="desc">Use this SVG file when rendering checked radiobuttons</td></tr>
+<tr><td class="short"></td><td class="long">--radiobutton-svg</td><td class="arg">&lt;path&gt; </td><td class="desc">Use this SVG file when rendering unchecked radiobuttons</td></tr>
+<tr><td class="short"></td><td class="long">--run-script</td><td class="arg">&lt;js&gt; </td><td class="desc">Run this additional javascript after the page is done loading (repeatable)</td></tr>
+<tr><td class="short"></td><td class="long">--disable-smart-shrinking<span style="font-weight: normal; font-size: 80%; color:red;">*</span></td><td class="arg"></td><td class="desc">Disable the intelligent shrinking strategy used by WebKit that makes the pixel/dpi ratio none constant</td></tr>
+<tr><td class="short"></td><td class="long">--enable-smart-shrinking<span style="font-weight: normal; font-size: 80%; color:red;">*</span></td><td class="arg"></td><td class="desc">Enable the intelligent shrinking strategy used by WebKit that makes the pixel/dpi ratio none constant (default)</td></tr>
+<tr><td class="short"></td><td class="long">--stop-slow-scripts</td><td class="arg"></td><td class="desc">Stop slow running javascripts (default)</td></tr>
+<tr><td class="short"></td><td class="long">--no-stop-slow-scripts</td><td class="arg"></td><td class="desc">Do not Stop slow running javascripts</td></tr>
+<tr><td class="short"></td><td class="long">--disable-toc-back-links<span style="font-weight: normal; font-size: 80%; color:red;">*</span></td><td class="arg"></td><td class="desc">Do not link from section header to toc (default)</td></tr>
+<tr><td class="short"></td><td class="long">--enable-toc-back-links<span style="font-weight: normal; font-size: 80%; color:red;">*</span></td><td class="arg"></td><td class="desc">Link from section header to toc</td></tr>
+<tr><td class="short"></td><td class="long">--user-style-sheet</td><td class="arg">&lt;url&gt; </td><td class="desc">Specify a user style sheet, to load with every page</td></tr>
+<tr><td class="short"></td><td class="long">--username</td><td class="arg">&lt;username&gt; </td><td class="desc">HTTP Authentication username</td></tr>
+<tr><td class="short"></td><td class="long">--window-status</td><td class="arg">&lt;windowStatus&gt; </td><td class="desc">Wait until window.status is equal to this string before rendering page</td></tr>
+<tr><td class="short"></td><td class="long">--zoom</td><td class="arg">&lt;float&gt; </td><td class="desc">Use this zoom factor (default 1)</td></tr>
+</table>
+<p>Items marked <span style="font-weight: normal; font-size: 80%; color:red;">*</span> are only available using patched QT.</p><a name="Headers And Footer Options"><h1>Headers And Footer Options</h1></a>
+<table>
+<tr><td class="short"></td><td class="long">--footer-center<span style="font-weight: normal; font-size: 80%; color:red;">*</span></td><td class="arg">&lt;text&gt; </td><td class="desc">Centered footer text</td></tr>
+<tr><td class="short"></td><td class="long">--footer-font-name<span style="font-weight: normal; font-size: 80%; color:red;">*</span></td><td class="arg">&lt;name&gt; </td><td class="desc">Set footer font name (default Arial)</td></tr>
+<tr><td class="short"></td><td class="long">--footer-font-size<span style="font-weight: normal; font-size: 80%; color:red;">*</span></td><td class="arg">&lt;size&gt; </td><td class="desc">Set footer font size (default 12)</td></tr>
+<tr><td class="short"></td><td class="long">--footer-html<span style="font-weight: normal; font-size: 80%; color:red;">*</span></td><td class="arg">&lt;url&gt; </td><td class="desc">Adds a html footer</td></tr>
+<tr><td class="short"></td><td class="long">--footer-left<span style="font-weight: normal; font-size: 80%; color:red;">*</span></td><td class="arg">&lt;text&gt; </td><td class="desc">Left aligned footer text</td></tr>
+<tr><td class="short"></td><td class="long">--footer-line<span style="font-weight: normal; font-size: 80%; color:red;">*</span></td><td class="arg"></td><td class="desc">Display line above the footer</td></tr>
+<tr><td class="short"></td><td class="long">--no-footer-line<span style="font-weight: normal; font-size: 80%; color:red;">*</span></td><td class="arg"></td><td class="desc">Do not display line above the footer (default)</td></tr>
+<tr><td class="short"></td><td class="long">--footer-right<span style="font-weight: normal; font-size: 80%; color:red;">*</span></td><td class="arg">&lt;text&gt; </td><td class="desc">Right aligned footer text</td></tr>
+<tr><td class="short"></td><td class="long">--footer-spacing<span style="font-weight: normal; font-size: 80%; color:red;">*</span></td><td class="arg">&lt;real&gt; </td><td class="desc">Spacing between footer and content in mm (default 0)</td></tr>
+<tr><td class="short"></td><td class="long">--header-center<span style="font-weight: normal; font-size: 80%; color:red;">*</span></td><td class="arg">&lt;text&gt; </td><td class="desc">Centered header text</td></tr>
+<tr><td class="short"></td><td class="long">--header-font-name<span style="font-weight: normal; font-size: 80%; color:red;">*</span></td><td class="arg">&lt;name&gt; </td><td class="desc">Set header font name (default Arial)</td></tr>
+<tr><td class="short"></td><td class="long">--header-font-size<span style="font-weight: normal; font-size: 80%; color:red;">*</span></td><td class="arg">&lt;size&gt; </td><td class="desc">Set header font size (default 12)</td></tr>
+<tr><td class="short"></td><td class="long">--header-html<span style="font-weight: normal; font-size: 80%; color:red;">*</span></td><td class="arg">&lt;url&gt; </td><td class="desc">Adds a html header</td></tr>
+<tr><td class="short"></td><td class="long">--header-left<span style="font-weight: normal; font-size: 80%; color:red;">*</span></td><td class="arg">&lt;text&gt; </td><td class="desc">Left aligned header text</td></tr>
+<tr><td class="short"></td><td class="long">--header-line<span style="font-weight: normal; font-size: 80%; color:red;">*</span></td><td class="arg"></td><td class="desc">Display line below the header</td></tr>
+<tr><td class="short"></td><td class="long">--no-header-line<span style="font-weight: normal; font-size: 80%; color:red;">*</span></td><td class="arg"></td><td class="desc">Do not display line below the header (default)</td></tr>
+<tr><td class="short"></td><td class="long">--header-right<span style="font-weight: normal; font-size: 80%; color:red;">*</span></td><td class="arg">&lt;text&gt; </td><td class="desc">Right aligned header text</td></tr>
+<tr><td class="short"></td><td class="long">--header-spacing<span style="font-weight: normal; font-size: 80%; color:red;">*</span></td><td class="arg">&lt;real&gt; </td><td class="desc">Spacing between header and content in mm (default 0)</td></tr>
+<tr><td class="short"></td><td class="long">--replace<span style="font-weight: normal; font-size: 80%; color:red;">*</span></td><td class="arg">&lt;name&gt; &lt;value&gt; </td><td class="desc">Replace [name] with value in header and footer (repeatable)</td></tr>
+</table>
+<p>Items marked <span style="font-weight: normal; font-size: 80%; color:red;">*</span> are only available using patched QT.</p><a name="TOC Options"><h1>TOC Options</h1></a>
+<table>
+<tr><td class="short"></td><td class="long">--disable-dotted-lines<span style="font-weight: normal; font-size: 80%; color:red;">*</span></td><td class="arg"></td><td class="desc">Do not use dottet lines in the toc</td></tr>
+<tr><td class="short"></td><td class="long">--toc-header-text<span style="font-weight: normal; font-size: 80%; color:red;">*</span></td><td class="arg">&lt;text&gt; </td><td class="desc">The header text of the toc (default Table of Content)</td></tr>
+<tr><td class="short"></td><td class="long">--toc-level-indentation<span style="font-weight: normal; font-size: 80%; color:red;">*</span></td><td class="arg">&lt;width&gt; </td><td class="desc">For each level of headings in the toc indent by this length (default 1em)</td></tr>
+<tr><td class="short"></td><td class="long">--disable-toc-links<span style="font-weight: normal; font-size: 80%; color:red;">*</span></td><td class="arg"></td><td class="desc">Do not link from toc to sections</td></tr>
+<tr><td class="short"></td><td class="long">--toc-text-size-shrink<span style="font-weight: normal; font-size: 80%; color:red;">*</span></td><td class="arg">&lt;real&gt; </td><td class="desc">For each level of headings in the toc the font is scaled by this facter (default 0.8)</td></tr>
+<tr><td class="short"></td><td class="long">--xsl-style-sheet<span style="font-weight: normal; font-size: 80%; color:red;">*</span></td><td class="arg">&lt;file&gt; </td><td class="desc">Use the supplied xsl style sheet for printing the table of content</td></tr>
+</table>
+<p>Items marked <span style="font-weight: normal; font-size: 80%; color:red;">*</span> are only available using patched QT.</p><a name="Specifying A Proxy"><h1>Specifying A Proxy</h1></a>
+<p>By default proxy information will be read from the environment variables: proxy, all_proxy and http_proxy, proxy options can also by specified with the -p switch</p>
+<pre>&lt;type&gt; := &quot;http://&quot; | &quot;socks5://&quot;
+&lt;serif&gt; := &lt;username&gt; (&quot;:&quot; &lt;password&gt;)? &quot;@&quot;
+&lt;proxy&gt; := &quot;None&quot; | &lt;type&gt;? &lt;sering&gt;? &lt;host&gt; (&quot;:&quot; &lt;port&gt;)?
+</pre><p>Here are some examples (In case you are unfamiliar with the BNF):</p>
+<pre>http://user:password@myproxyserver:8080
+socks5://myproxyserver
+None
+</pre><a name="Footers And Headers"><h1>Footers And Headers</h1></a>
+<p>Headers and footers can be added to the document by the --header-* and --footer* arguments respectfully.  In header and footer text string supplied to e.g. --header-left, the following variables will be substituted.</p>
+<pre> * [page]       Replaced by the number of the pages currently being printed
+ * [frompage]   Replaced by the number of the first page to be printed
+ * [topage]     Replaced by the number of the last page to be printed
+ * [webpage]    Replaced by the URL of the page being printed
+ * [section]    Replaced by the name of the current section
+ * [subsection] Replaced by the name of the current subsection
+ * [date]       Replaced by the current date in system local format
+ * [time]       Replaced by the current time in system local format
+ * [title]      Replaced by the title of the of the current page object
+ * [doctitle]   Replaced by the title of the output document
+
+</pre><p>As an example specifying --header-right &quot;Page [page] of [toPage]&quot;, will result in the text &quot;Page x of y&quot; where x is the number of the current page and y is the number of the last page, to appear in the upper left corner in the document.</p>
+<p>Headers and footers can also be supplied with HTML documents. As an example one could specify --header-html header.html, and use the following content in header.html:</p>
+<pre>&lt;html&gt;&lt;head&gt;&lt;script&gt;
+function subst() {
+  var vars={};
+  var x=document.location.search.substring(1).split('&amp;');
+  for (var i in x) {var z=x[i].split('=',2);vars[z[0]] = unescape(z[1]);}
+  var x=['frompage','topage','page','webpage','section','subsection','subsubsection'];
+  for (var i in x) {
+    var y = document.getElementsByClassName(x[i]);
+    for (var j=0; j&lt;y.length; ++j) y[j].textContent = vars[x[i]];
+  }
+}
+&lt;/script&gt;&lt;/head&gt;&lt;body style=&quot;border:0; margin: 0;&quot; onload=&quot;subst()&quot;&gt;
+&lt;table style=&quot;border-bottom: 1px solid black; width: 100%&quot;&gt;
+  &lt;tr&gt;
+    &lt;td class=&quot;section&quot;&gt;&lt;/td&gt;
+    &lt;td style=&quot;text-align:right&quot;&gt;
+      Page &lt;span class=&quot;page&quot;&gt;&lt;/span&gt; of &lt;span class=&quot;topage&quot;&gt;&lt;/span&gt;
+    &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+&lt;/body&gt;&lt;/html&gt;
+
+</pre><p>As can be seen from the example, the arguments are sent to the header/footer html documents in get fashion.</p>
+<a name="Outlines"><h1>Outlines</h1></a>
+<p>Wkhtmltopdf with patched qt has support for PDF outlines also known as book marks, this can be enabled by specifying the --outline switch. The outlines are generated based on the &lt;h?&gt; tags, for a in-depth description of how this is done see the <a href="#Table Of Contest">Table Of Contest</a> section. </p>
+<p>The outline tree can sometimes be very deep, if the &lt;h?&gt; tags where spread to generous in the HTML document.  The --outline-depth switch can be used to bound this.</p>
+<a name="Table Of Content"><h1>Table Of Content</h1></a>
+<p>A table of content can be added to the document by adding a toc objectto the command line. For example:</p>
+<pre>wkhtmltopdf toc http://doc.trolltech.com/4.6/qstring.html qstring.pdf
+</pre><p>The table of content is generated based on the H tags in the input documents. First a XML document is generated, then it is converted to HTML using XSLT.</p>
+<p>The generated XML document can be viewed by dumping it to a file using the --dump-outline switch. For example:</p>
+<pre>wkhtmltopdf --dump-outline toc.xml http://doc.trolltech.com/4.6/qstring.html qstring.pdf
+</pre><p>The XSLT document can be specified using the --xsl-style-sheet switch. For example:</p>
+<pre>wkhtmltopdf toc --xsl-style-sheet my.xsl http://doc.trolltech.com/4.6/qstring.html qstring.pdf
+</pre><p>The --dump-default-toc-xsl switch can be used to dump the default XSLT style sheet to stdout. This is a good start for writing your own style sheet</p>
+<pre>wkhtmltopdf --dump-default-toc-xsl</pre><p>The XML document is in the namespace &quot;http://code.google.com/p/wkhtmltopdf/outline&quot; it has a root node called &quot;outline&quot; which contains a number of &quot;item&quot; nodes. An item can contain any number of item. These are the outline subsections to the section the item represents. A item node has the following attributes:</p>
+<ul><li>&quot;title&quot; the name of the section.</li>
+<li>&quot;page&quot; the page number the section occurs on.</li>
+<li>&quot;link&quot; a URL that links to the section.</li>
+<li>&quot;backLink&quot; the name of the anchor the the section will link back to.</li>
+</ul><p>The remaining TOC options only affect the default style sheet so they will not work when specifying a custom style sheet.</p>
+<a name="Page Breaking"><h1>Page Breaking</h1></a>
+<p>The current page breaking algorithm of WebKit leaves much to be desired. Basically webkit will render everything into one long page, and then cut it up into pages. This means that if you have two columns of text where one is vertically shifted by half a line. Then webkit will cut a line into to pieces display the top half on one page. And the bottom half on another page. It will also break image in two and so on.  If you are using the patched version of QT you can use the CSS page-break-inside property to remedy this somewhat. There is no easy solution to this problem, until this is solved try organising your HTML documents such that it contains many lines on which pages can be cut cleanly.</p>
+<p>See also: <a href="http://code.google.com/p/wkhtmltopdf/issues/detail?id=9">http://code.google.com/p/wkhtmltopdf/issues/detail?id=9</a>, <a href="http://code.google.com/p/wkhtmltopdf/issues/detail?id=33">http://code.google.com/p/wkhtmltopdf/issues/detail?id=33</a> and <a href="http://code.google.com/p/wkhtmltopdf/issues/detail?id=57">http://code.google.com/p/wkhtmltopdf/issues/detail?id=57</a>.</p>
+<a name="Page sizes"><h1>Page sizes</h1></a>
+<p>The default page size of the rendered document is A4, but using this --page-size optionthis can be changed to almost anything else, such as: A3, Letter and Legal.  For a full list of supported pages sizes please see <a href="http://doc.trolltech.com/4.6/qprinter.html#PageSize-enum">http://doc.trolltech.com/4.6/qprinter.html#PageSize-enum</a>.</p>
+<p>For a more fine grained control over the page size the --page-height and --page-width options may be used</p>
+<a name="Reading arguments from stdin"><h1>Reading arguments from stdin</h1></a>
+<p>If you need to convert a lot of pages in a batch, and you feel that wkhtmltopdf is a bit to slow to start up, then you should try --read-args-from-stdin,</p>
+<p>When --read-args-from-stdin each line of input sent to wkhtmltopdf on stdin will act as a separate invocation of wkhtmltopdf, with the arguments specified on the given line combined with the arguments given to wkhtmltopdf</p>
+<p>For example one could do the following:</p>
+<pre>echo &quot;http://doc.trolltech.com/4.5/qapplication.html qapplication.pdf&quot; &gt;&gt; cmds
+echo &quot;cover google.com http://en.wikipedia.org/wiki/Qt_(toolkit) qt.pdf&quot; &gt;&gt; cmds
+wkhtmltopdf --read-args-from-stdin --book &lt; cmds
+</pre><a name="Static version"><h1>Static version</h1></a>
+<p>On the wkhtmltopdf website you can download a static version of wkhtmltopdf <a href="http://code.google.com/p/wkhtmltopdf/downloads/list">http://code.google.com/p/wkhtmltopdf/downloads/list</a>. This static binary will work on most systems and comes with a build in patched QT.</p>
+<p>Unfortunately the static binary is not particularly static, on Linux it depends on both glibc and openssl, furthermore you will need to have an xserver installed but not necessary running. You will need to have different fonts install including xfonts-scalable (Type1), and msttcorefonts.  See <a href="http://code.google.com/p/wkhtmltopdf/wiki/static">http://code.google.com/p/wkhtmltopdf/wiki/static</a> for trouble shouting.</p>
+<a name="Compilation"><h1>Compilation</h1></a>
+<p>It can happen that the static binary does not work for your system for one reason or the other, in that case you might need to compile wkhtmltopdf yourself.</p>
+<p><b>GNU/Linux:</b></p>
+<p>Before compilation you will need to install dependencies: X11, gcc, git and openssl. On Debian/Ubuntu this can be done as follows:</p>
+<pre>sudo apt-get build-dep libqt4-gui libqt4-network libqt4-webkit
+sudo apt-get install openssl build-essential xorg git-core git-doc libssl-dev
+</pre><p>On other systems you must use your own package manager, the packages might be named differently.</p>
+<p>First you must check out the modified version of QT</p>
+<pre>git clone git://gitorious.org/+wkhtml2pdf/qt/wkhtmltopdf-qt.git wkhtmltopdf-qt</pre><p>Next you must configure, compile and install QT, note this will take quite some time, depending on what arguments you use to configure qt</p>
+<pre>cd wkhtmltopdf-qt
+./configure -nomake tools,examples,demos,docs,translations -opensource -prefix ../wkqt
+make -j3
+make install
+cd ..
+</pre><p>All that is needed now is, to compile wkhtmltopdf.</p>
+<pre>git clone git://github.com/antialize/wkhtmltopdf.git wkhtmltopdf
+cd wkhtmltopdf
+../wkqt/bin/qmake
+make -j3
+</pre><p>You show now have a binary called wkhtmltopdf in the currently folder that you can use, you can optionally install it by running</p>
+<pre>make install</pre><p><b>Other operative systems and advanced features</b></p>
+<p>If you want more details or want to compile under other operative systemsother then GNU/Linux, please see<a href="http://code.google.com/p/wkhtmltopdf/wiki/compilation">http://code.google.com/p/wkhtmltopdf/wiki/compilation</a>.</p>
+<a name="Installation"><h1>Installation</h1></a>
+<p>There are several ways to install wkhtmltopdf.  You can download a already compiled binary, or you can compile wkhtmltopdf yourself. On windows the easiest way to install wkhtmltopdf is to download the latest installer. On linux you can download the latest static binary, however you still need to install some other pieces of software, to learn more about this read the static version section of the manual.</p>
+<a name="Examples"><h1>Examples</h1></a>
+<p>This section presents a number of examples of how to invoke wkhtmltopdf.</p>
+<p>To convert a remote HTML file to PDF:</p>
+<pre>wkhtmltopdf http://www.google.com google.pdf
+</pre><p>To convert a local HTML file to PDF:</p>
+<pre>wkhtmltopdf my.html my.pdf
+</pre><p>You can also convert to PS files if you like:</p>
+<pre>wkhtmltopdf my.html my.ps
+</pre><p>Produce the eler2.pdf sample file:</p>
+<pre>wkhtmltopdf -H  http://geekz.co.uk/lovesraymond/archive/eler-highlights-2008 eler2.pdf
+</pre><p>Printing a book with a table of content:</p>
+<pre>wkhtmltopdf -H cover cover.html toc chapter1.html chapter2.html chapter3.html book.pdf
+</pre></body></html>
