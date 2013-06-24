@@ -1,12 +1,12 @@
 处理button group
-------------
+==================
 
 场景
-====
+----
 button group就是按钮组，将一组按钮排列在一起。处理这种对象的思路一般是先找到button group的包裹(wrapper)div，然后通过层级定位，用index或属性去定位更具体的按钮。
 
 代码
-====
+----
 下面的代码演示了如何找到second这个按钮。其处理方法是先找到button group的父div，class为btn-group的div，然后再找到下面所有的div(也就是button)，返回text是second的div。
 ### button_group.html
 ```
@@ -62,5 +62,5 @@ button group就是按钮组，将一组按钮排列在一起。处理这种对�
 ```
 
 讨论
-====
+----
 自己查资料搞清楚detect方法的作用。
