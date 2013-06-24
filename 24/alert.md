@@ -1,8 +1,8 @@
 处理alert/confirm/prompt
-------------
+========================
 
 场景
-====
+----
 webdriver中处理原生的js alert confirm 以及prompt是很简单的。具体思路是使用switch_to.alert()方法定位到alert/confirm/prompt。然后使用text/accept/dismiss/send_keys按需进行操做
 
 * text。返回alert/confirm/prompt中的文字信息
@@ -11,7 +11,7 @@ webdriver中处理原生的js alert confirm 以及prompt是很简单的。具体
 * send_keys。向prompt中输入文字
 
 代码
-====
+----
 下面代码简单的演示了如何去处理原生的alert
 ### alert.html
 
