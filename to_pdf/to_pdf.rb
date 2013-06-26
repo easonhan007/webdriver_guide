@@ -22,7 +22,7 @@ md_files.each_with_index do |md, index|
 		File.open(md, 'r') do |f|
 			if index != 0 
 				handle.puts ''
-				handle.write('-' * 20)
+				# handle.write('-' * 20)
 				20.times { handle.puts '' }
 			end #if
 			handle.write(f.read) 
@@ -31,14 +31,6 @@ md_files.each_with_index do |md, index|
 end
 all_in_one_html = 'all_in_one.html'
 
-File.open(all_in_one_html, 'w') do 
-	|f| f.write '<html>
-	<head>
-		<meta http-equiv="content-type" content="text/html;charset=utf-8" />
-		<title>Book</title>		
-	</head>
-	<body>'
-end 
 system("mdt #{all_in_one} >> #{all_in_one_html}")
 
 =begin
