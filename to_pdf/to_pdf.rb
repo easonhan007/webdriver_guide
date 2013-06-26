@@ -20,27 +20,24 @@ all_in_one = 'all_in_one.md'
 md_files.each_with_index do |md, index|
 	File.open(all_in_one, 'a+') do |handle|
 		File.open(md, 'r') do |f|
-			handle.write('-' * 20) if index != 0
-			20.times { handle.puts '' } if index != 0
+			if index != 0 
+				handle.puts ''
+				# handle.write('-' * 20)
+				20.times { handle.puts '' }
+			end #if
 			handle.write(f.read) 
 		end #File.open
 	end
 end
 all_in_one_html = 'all_in_one.html'
 
-File.open(all_in_one_html, 'w') do 
-	|f| f.write '<html>
-	<head>
-		<meta http-equiv="content-type" content="text/html;charset=utf-8" />
-		<title>Book</title>		
-	</head>
-	<body>'
-end 
 system("mdt #{all_in_one} >> #{all_in_one_html}")
-File.open(all_in_one_html, 'a+') { |f| f.write'</body></html>'}
 
+=begin
 html = File.open(all_in_one_html, 'r') { |f| f.read }
 kit = PDFKit.new(html)
+kit.stylesheets << './style.css'
 kit.to_file('book.pdf')
 File.delete(all_in_one)
 File.delete(all_in_one_html)
+=end
