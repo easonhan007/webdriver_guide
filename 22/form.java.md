@@ -5,7 +5,7 @@ form的操作
 -----
 表单对象的操作比较简单，只需要记住下面几点
 
-* 使用send_keys方法往多行文本框和单行文本框赋值；
+* 使用sendKeys方法往多行文本框和单行文本框赋值；
 * 使用click方法选择checkbox
 * 使用click方法选择radio
 * 使用click方法点击button
@@ -65,34 +65,58 @@ form的操作
 		</body>
 		<script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
 	</html>
+
+###Form.java
+
 ```
-	#encoding: utf-8
-	require 'selenium-webdriver'
+	import java.io.File;
+	import java.util.List;
 
-	dr = Selenium::WebDriver.for :chrome
-	file_path = 'file:///' + File.expand_path(File.join('.', 'form.html'))
-	dr.get file_path
+	import org.openqa.selenium.Alert;
+	import org.openqa.selenium.By;
+	import org.openqa.selenium.Keys;
+	import org.openqa.selenium.WebDriver;
+	import org.openqa.selenium.WebElement;
+	import org.openqa.selenium.chrome.ChromeDriver;
 
-	# 选中checkbox
-	dr.find_element(:css, 'input[type=checkbox]').click()
-	sleep(1)
 
-	# 选中radio
-	dr.find_element(:css, 'input[type=radio]').click()
-	sleep(1)
+	public class Form {
 
-	# 选择下拉菜单中的最后一项
-	dr.find_element(:tag_name, 'select').find_elements(:tag_name, 'option').last.click()
-	sleep(1)
+		public static void main(String[] args) throws InterruptedException {
+			WebDriver dr = new ChromeDriver();
+			
+			File file = new File("src/form.html");
+			String filePath = "file:///" + file.getAbsolutePath();
+			System.out.printf("now accesss %s \n", filePath);
+			
+			dr.get(filePath);
+			Thread.sleep(1000);
+			
+	//		选中checkbox
+			dr.findElement(By.cssSelector("input[type=checkbox]")).click();
+			Thread.sleep(1000);
+			
+	//		选中radio
+			dr.findElement(By.cssSelector("input[type=radio]")).click();
+			Thread.sleep(1000);
+			
+	//		选择下拉菜单中的最后一项
+			List<WebElement> options = dr.findElement(By.tagName("select")).findElements(By.tagName("option"));
+			options.get(options.size() - 1).click();
+			Thread.sleep(1000);
+			
+	//		点击提交按钮
+			dr.findElement(By.cssSelector("input[type=submit]")).click();
+			
+			Alert alert = dr.switchTo().alert();
+			System.out.println(alert.getText());
+			alert.accept();
+			
+			Thread.sleep(1000);
+			System.out.println("browser will be close");
+			dr.quit();	
+		}
 
-	# 点击提交按钮
-	dr.find_element(:css, 'input[type=submit]').click()
-	sleep(1)
-
-	alert = dr.switch_to.alert
-	puts alert.text
-	alert.accept()
-
-	dr.quit()
+	}
 ```
 
