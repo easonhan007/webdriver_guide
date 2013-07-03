@@ -16,6 +16,9 @@ form的操作
 
 ### form.html
 ```
+```
+
+### form.rb
 	<html>
 		<head>
 			<meta http-equiv="content-type" content="text/html;charset=utf-8" />
@@ -62,9 +65,6 @@ form的操作
 		</body>
 		<script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
 	</html>
-```
-
-### form.rb
 ```
 	#encoding: utf-8
 	require 'selenium-webdriver'
