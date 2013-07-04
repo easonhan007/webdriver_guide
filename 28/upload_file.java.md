@@ -1,82 +1,63 @@
-执行js
-=======
+上传文件
+========
 
 场景
 ----
-如果你熟悉js的话，那么使用webdriver执行js就是一件很高效的事情了。在webdriver脚本中直接执行js的好处很多，这里就不一一枚举了。
-
-webdriver提供了JavascriptExecutor(dr).executeScript()接口来帮助我们完成这一工作。在实际的测试脚本中，以下两种场景是经常遇到的
-
-* 在页面直接执行一段js
-* 在某个已经定位的元素的上执行js
+上传文件的方法是找到上传文件的对象，通常是<input type="file" />的对象。然后直接往这个对象sendKeys，传入需要上传文件的正确路径。绝对路径和相对路径都可以，但是上传的文件必须存在，否则会报错。
 
 代码
 ----
-下面的代码演示了如何在页面以及在已经定位的元素上执行js
 
-### js.html
+### upload_file.html
 ```
   <html>
     <head>
       <meta http-equiv="content-type" content="text/html;charset=utf-8" />
-      <title>js</title>		
+      <title>upload_file</title>		
       <script type="text/javascript" async="" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
       <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" />		
       <script type="text/javascript">
-        $(document).ready(function(){
-          $('#tooltip').tooltip({"placement": "right"});
-        });
       </script>
     </head>
       
     <body>
-      <h3>js</h3>
       <div class="row-fluid">
         <div class="span6 well">		
-          <a id="tooltip" href="#" data-toggle="tooltip" title="watir-webdriver better than selenium-webdriver">hover to see tooltip</a>
-          <a class="btn">Button</a>
+          <h3>upload_file</h3>
+          <input type="file" name="file" />
         </div>		
       </div>		
     </body>
     <script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
   </html>
-
 ```
 
-### js.java
+### upload_file.java
 ```
 	import java.io.File;
 	import java.util.List;
 
 	import org.openqa.selenium.Alert;
 	import org.openqa.selenium.By;
-	import org.openqa.selenium.JavascriptExecutor;
 	import org.openqa.selenium.Keys;
 	import org.openqa.selenium.WebDriver;
 	import org.openqa.selenium.WebElement;
 	import org.openqa.selenium.chrome.ChromeDriver;
 
 
-	public class Js {
+	public class Upload {
 
 		public static void main(String[] args) throws InterruptedException {
 			WebDriver dr = new ChromeDriver();
 			
-			File file = new File("src/js.html");
+			File file = new File("src/upload_file.html");
 			String filePath = "file:///" + file.getAbsolutePath();
 			System.out.printf("now accesss %s \n", filePath);
 			
 			dr.get(filePath);
 			Thread.sleep(1000);
 			
-	//		在页面上直接执行js
-			((JavascriptExecutor)dr).executeScript("$('#tooltip').fadeOut();");
-			Thread.sleep(1000);
-			
-	//		在已经定位的元素上执行js
-			WebElement button = dr.findElement(By.className("btn"));
-			((JavascriptExecutor)dr).executeScript("$(arguments[0]).fadeOut();", button);
-				
+			dr.findElement(By.cssSelector("input[type=file]")).sendKeys("src/navs.html");
 			
 			Thread.sleep(1000);
 			System.out.println("browser will be close");
@@ -85,4 +66,3 @@ webdriver提供了JavascriptExecutor(dr).executeScript()接口来帮助我们完
 
 	}
 ```
-

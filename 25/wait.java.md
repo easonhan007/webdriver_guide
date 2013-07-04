@@ -3,22 +3,20 @@ wait
 
 场景
 ----
-Wait类的使用场景是在页面上进行某些操作，然后页面上就会出现或隐藏一些元素，此时使用Wait类的until方法来等待这些效果完成以便进行后续的操作。另外页面加载时有可能会执行一些ajax，这时候也需要去Wait的until的等待ajax的请求执行完毕。
+Wait类的使用场景是在页面上进行某些操作，然后页面上就会出现或隐藏一些元素，此时使用WebDriverWait类的until方法来等待这些效果完成以便进行后续的操作。另外页面加载时有可能会执行一些ajax，这时候也需要去WebDriverWait的until的等待ajax的请求执行完毕。
 
 具体一点的例子前面也曾出现过，点击一个链接然后会出现一个下拉菜单，此时需要先等待下拉菜单出现方可进行点击菜单项的操作。
 
-在实例化Wait类时，可以传入以下的一些参数
+在实例化WebDriverWait类时，有下面2个构造方法
+* public WebDriverWait(WebDriver driver, long timeOutInSeconds)
+* public WebDriverWait(WebDriver driver, long timeOutInSeconds, long sleepInMillis)
 
-* timeout。总共等待多久,默认5s
-* interval。每隔多久检查一次代码块里的值，默认0.2秒
-* message。如果超时则显示message
-* ignored。代码块中忽略的异常。也就是说如果代码块中抛出了这个异常，那么webdriver将忽略这个异常，继续进行等待，直到满足下面所列举的退出条件为止。默认情况下NoSuchElement异常是被忽略的。
+其参数为
+* WebDriver driver。不言而喻
+* long timeOutInSeconds。总体的超时时间，最多等这么久。
+* long sleepInMillis。每隔多久去检查一次until的结果
 
-until方法会一直等下去，直到
-
-* 代码块中的内容为true(不为false或没有抛出异常)
-* 超时,也就是超过了timeout设置的时间
-
+另外要注意的是，默认情况下，unitl中的NotFoundException会被忽略，但是其他异常还是正常传播的。你可以通过ignoring(exceptions to add)自己定义需要忽略的异常。
 
 代码
 ----
