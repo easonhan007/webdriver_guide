@@ -38,3 +38,45 @@ webdriver实用指南ruby版本
 * [超时设置](/30/timeout.md)
 * [Remote Webdriver](/31/remote.md)
 * [cookie与自动登陆](/32/cookie.md)
+
+-----------------------------------------------------------
+
+webdriver实用指南java版本
+=========================
+
+不用担心，html版本的《webdriver实用指南java版本》是 __永久免费__ 的。
+
+目录如下
+========
+
+* [启动浏览器](/01/start_browser.java.md)
+* [关闭浏览器](/02/close_browser.java.md)
+* [浏览器最大化](/03/maximize_browser.java.md)
+* [设置浏览器大小](/04/resize_browser.java.md)
+* [访问链接](/05/get.java.md)
+* [打印当前页面的title及url](06/title_and_url.java.md)
+* [前进和后退](07/forword_and_back.java.md)
+* [简单的对象定位](/08/simple_locate.java.md)
+* [定位一组对象](/09/find_elements.java.md)
+* [层级定位](/10/level_locate.java.md)
+* [操作测试对象](/11/operate_element.java.md)
+* [send keys模拟按键输入](/12/send_keys.java.md)
+* [处理button group](/13/button_group.java.md)
+* [处理button dropdown](/14/button_dropdown.java.md)
+* [处理navs](/15/navs.java.md)
+* [处理面包屑](/16/breadcrumb.java.md)
+* [处理对话框新式的模态窗口](/18/modal.java.md)
+* [获取测试对象的属性及内容](/19/attribute.java.md)
+* [获取测试对象的css属性](/20/css.java.md)
+* [获取测试对象的状态](/21/status.java.md)
+* [处理表单元素](/22/form.java.md)
+* [执行js](/23/js.java.md)
+* [处理alert/confirm/prompt](/24/alert.java.md)
+* [wait](/25/wait.java.md)
+* [定位frame中的元素](/26/frame.java.md)
+* [action](/27/action.java.md)
+* [上传文件](/28/upload_file.java.md)
+* [下载](/29/download.java.md)
+* [超时设置](/30/timeout.java.md)
+* [Remote Webdriver](/31/remote.java.md)
+* [cookie与自动登陆](/32/cookie.java.md)
