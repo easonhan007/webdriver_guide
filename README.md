@@ -45,6 +45,7 @@ webdriver实用指南java版本
 =========================
 
 不用担心，html版本的《webdriver实用指南java版本》是 __永久免费__ 的。
+如果你喜欢本书，可以购买[pdf版本](http://item.taobao.com/item.htm?id=21296527347),15元。
 
 目录如下
 ========
