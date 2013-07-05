@@ -79,5 +79,5 @@ webdriver实用指南java版本
 * [上传文件](/28/upload_file.java.md)
 * [下载](/29/download.java.md)
 * [超时设置](/30/timeout.java.md)
-* [Remote Webdriver](/31/remote.java.md)
+* [Remote Webdriver](/31/remote.md)
 * [cookie与自动登陆](/32/cookie.java.md)
