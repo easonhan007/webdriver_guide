@@ -1,6 +1,6 @@
 #encoding: utf-8
-require 'pdfkit'
-
+#require 'pdfkit'
+=begin
 PDFKit.configure do |config|
  # config.wkhtmltopdf = 'D:\wkhtmltopdf\wkhtmltopdf.exe'
   config.default_options = {
@@ -12,8 +12,9 @@ PDFKit.configure do |config|
   }
   # config.root_url = "http://localhost" # Use only if your external hostname is unavailable on the server.
 end
-
-md = File.join('..', '**', '*.md')
+=end
+#md = File.join('..', '**', '*.md')
+md = File.join('..', '**', '*.java.md')
 md_files = Dir.glob(md)
 
 all_in_one = 'all_in_one.md'
@@ -29,7 +30,8 @@ md_files.each_with_index do |md, index|
 		end #File.open
 	end
 end
-all_in_one_html = 'all_in_one.html'
+#all_in_one_html = 'all_in_one.html'
+all_in_one_html = 'all_in_one.java.html'
 
 system("mdt #{all_in_one} >> #{all_in_one_html}")
 

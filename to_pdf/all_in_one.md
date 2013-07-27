@@ -7,14 +7,18 @@
 
 代码
 ----
-```ruby
-  require 'selenium-webdriver'
-  # chrome
-  dr = Selenium::WebDriver.for :chrome
-  # firefox
-  dr = Selenium::WebDriver.for :ff
-  # ie
-  dr = Selenium::WebDriver.for :ie
+```
+	import org.openqa.selenium.WebDriver;
+	import org.openqa.selenium.chrome.ChromeDriver;
+
+
+	public class StartBrowser {
+
+		public static void main(String[] args) {
+			WebDriver dr = new ChromeDriver();
+		}
+
+	}
 ```
 
 
@@ -57,13 +61,22 @@ close方法关闭当前的浏览器窗口，quit方法不仅关闭窗口，还�
 代码
 ----
 ```
-  require 'selenium-webdriver'
+	import org.openqa.selenium.WebDriver;
+	import org.openqa.selenium.chrome.ChromeDriver;
 
-  dr = Selenium::WebDriver.for :chrome
-  sleep 2
-  puts 'browser will be closed'
-  dr.quit() # or dr.close()
-  puts 'browser is closed'
+
+	public class CloseBrowser {
+
+		public static void main(String[] args) {
+			WebDriver dr = new ChromeDriver();
+			System.out.println("browser will be closed");
+			
+			dr.quit();	
+			System.out.println("browser is closed");
+		}
+
+	}
+
 ```
 
 
@@ -98,15 +111,26 @@ close方法关闭当前的浏览器窗口，quit方法不仅关闭窗口，还�
 代码
 ----
 ```
-  require 'selenium-webdriver'
+	import org.openqa.selenium.WebDriver;
+	import org.openqa.selenium.chrome.ChromeDriver;
 
-  dr = Selenium::WebDriver.for :chrome
-  sleep 2
-  puts 'maximize browser'
-  dr.manage.window.maximize()
-  sleep 2
-  puts 'close browser'
-  dr.quit
+
+	public class Maximize {
+
+		public static void main(String[] args) throws InterruptedException {
+			WebDriver dr = new ChromeDriver();
+			Thread.sleep(2000);
+			
+			System.out.println("maximize browser");
+			dr.manage().window().maximize();
+			Thread.sleep(2000);
+			
+			System.out.println("browser will be close");
+			dr.quit();	
+		}
+
+	}
+
 ```
 
 
@@ -147,15 +171,22 @@ close方法关闭当前的浏览器窗口，quit方法不仅关闭窗口，还�
 将浏览器调整成移动端大小，然后访问移动站点，对移动站点的样式进行评估。
 
 ```
-  require 'selenium-webdriver'
+	import org.openqa.selenium.WebDriver;
+	import org.openqa.selenium.chrome.ChromeDriver;
 
-  dr = Selenium::WebDriver.for :chrome
 
-  dr.manage.window.resize_to(320,480)
-  dr.get 'http://www.3g.qq.com'
+	public class CloseBrowser {
 
-  sleep 5
-  dr.quit
+		public static void main(String[] args) {
+			WebDriver dr = new ChromeDriver();
+			System.out.println("browser will be closed");
+			
+			dr.quit();	
+			System.out.println("browser is closed");
+		}
+
+	}
+
 ```
 
 讨论
@@ -197,15 +228,27 @@ webdriver的api里有2种访问url的方式，分别是get和navigate.to方法�
 ----
 
 ```
-  require 'selenium-webdriver'
+	import org.openqa.selenium.WebDriver;
+	import org.openqa.selenium.chrome.ChromeDriver;
 
-  dr = Selenium::WebDriver.for :chrome
-  url = 'http://www.baidu.com'
-  puts "now access #{url}"
-  dr.get url
-  sleep 5
 
-  dr.quit
+	public class Get {
+
+		public static void main(String[] args) throws InterruptedException {
+			WebDriver dr = new ChromeDriver();
+			Thread.sleep(2000);
+			
+			String url = "http://www.baidu.com";
+			System.out.printf("now accesss %s \n", url);
+			dr.get(url);
+			Thread.sleep(2000);
+			
+			System.out.println("browser will be close");
+			dr.quit();	
+		}
+
+	}
+
 ```
 
 讨论
@@ -246,18 +289,31 @@ navigate方法实际上会产生1个Navigator对象，其封装了与导航相�
 代码
 ----
 ```
-  require 'selenium-webdriver'
+	import org.openqa.selenium.WebDriver;
+	import org.openqa.selenium.chrome.ChromeDriver;
 
-  dr = Selenium::WebDriver.for :chrome
-  url = 'http://www.baidu.com'
-  puts "now access #{url}"
-  dr.get url
 
-  puts "title of current page is #{dr.title}"
-  puts "url of current page is #{dr.current_url}"
-  sleep 1
+	public class TitleAndUrl {
 
-  dr.quit
+		public static void main(String[] args) throws InterruptedException {
+			WebDriver dr = new ChromeDriver();
+			Thread.sleep(2000);
+			
+			String url = "http://www.baidu.com";
+			System.out.printf("now accesss %s \n", url);
+			
+			dr.get(url);
+			Thread.sleep(2000);
+			
+			System.out.printf("title of current page is %s\n", dr.getTitle());
+			System.out.printf("url of current page is %s\n", dr.getCurrentUrl());
+			
+			System.out.println("browser will be close");
+			dr.quit();	
+		}
+
+	}	
+
 ```
 
 
@@ -291,25 +347,40 @@ navigate方法实际上会产生1个Navigator对象，其封装了与导航相�
 ----
 
 ```
-  require 'selenium-webdriver'
+	import org.openqa.selenium.WebDriver;
+	import org.openqa.selenium.chrome.ChromeDriver;
 
-  dr = Selenium::WebDriver.for :chrome
-  first_url = 'http://www.baidu.com'
-  puts "now access #{first_url}"
-  dr.get(first_url)
-  sleep 1
-  second_url = 'http://www.news.baidu.com'
-  puts "now access #{second_url}"
-  dr.get(second_url)
-  sleep 1
 
-  puts "back to #{first_url}"
-  dr.navigate.back()
-  sleep 1
-  puts "forward to #{second_url}"
-  dr.navigate.forward()
-  sleep 1
-  dr.quit()
+	public class ForwardAndBack {
+
+		public static void main(String[] args) throws InterruptedException {
+			WebDriver dr = new ChromeDriver();
+			Thread.sleep(2000);
+			
+			String firstUrl = "http://www.baidu.com";
+			System.out.printf("now accesss %s \n", firstUrl);
+			dr.get(firstUrl);
+			Thread.sleep(1000);
+			
+			String secondUrl = "http://www.soso.com";
+			System.out.printf("now accesss %s \n", secondUrl);
+			dr.get(secondUrl);
+			Thread.sleep(1000);
+
+			System.out.printf("now back to  %s \n", firstUrl);
+			dr.navigate().back();
+			Thread.sleep(1000);
+		
+			System.out.printf("forward to  %s \n", secondUrl);
+			dr.navigate().forward();
+			Thread.sleep(1000);
+			
+			System.out.println("browser will be close");
+			dr.quit();	
+		}
+
+	}
+
 ```
 
 
@@ -398,49 +469,67 @@ webdriver提供了一系列的对象定位方法，常用的有以下几种
   </html>
 ```
 
-### ruby代码 simple_locate.rb
+### java代码 simple_locate.java
 ```
-  require 'selenium-webdriver'
+	import java.io.File;
 
-  dr = Selenium::WebDriver.for :chrome
-  file_path = 'file:///' + File.expand_path(File.join('.', 'form.html'))
-  puts file_path
-  dr.get file_path
+	import org.openqa.selenium.By;
+	import org.openqa.selenium.WebDriver;
+	import org.openqa.selenium.WebElement;
+	import org.openqa.selenium.chrome.ChromeDriver;
+	import org.openqa.selenium.JavascriptExecutor;
 
-  # by id
-  dr.find_element(:id, 'inputEmail').click
 
-  # by name
-  dr.find_element(:name, 'password').click
+	public class SimpleLocate {
 
-  # by tagname
-  puts dr.find_element(:tag_name, 'form')[:class]
+		public static void main(String[] args) throws InterruptedException {
+			WebDriver dr = new ChromeDriver();
+			
+			File file = new File("src/form.html");
+			String filePath = "file:///" + file.getAbsolutePath();
+			System.out.printf("now accesss %s \n", filePath);
+			
+			dr.get(filePath);
+			Thread.sleep(2000);
+			
+	//		by id
+			dr.findElement(By.id("inputEmail")).click();
+			Thread.sleep(1000);
+			
+	//		by name
+			dr.findElement(By.name("password"));
+			Thread.sleep(1000);
+			
+	//		by tagname
+			String classOfForm = dr.findElement(By.tagName("form")).getAttribute("class");
+			System.out.printf("%s\n", classOfForm);
+			Thread.sleep(1000);
+			
+	//		by link text
+			WebElement link = dr.findElement(By.linkText("register"));
+			((JavascriptExecutor)dr).executeScript("$(arguments[0]).fadeOut().fadeIn()", link);
+			Thread.sleep(1000);
 
-  # by class_name
-  e = dr.find_element(:class, 'controls')
-  dr.execute_script('$(arguments[0]).fadeOut().fadeIn()', e)
-  sleep 1
+	//		by partial link test
+			WebElement sameLink = dr.findElement(By.partialLinkText("reg"));
+			((JavascriptExecutor)dr).executeScript("$(arguments[0]).fadeOut().fadeIn()", sameLink);
+			Thread.sleep(1000);
+			
+	//		by css selector
+			WebElement div = dr.findElement(By.cssSelector(".controls"));
+			((JavascriptExecutor)dr).executeScript("$(arguments[0]).fadeOut().fadeIn()", div);
+			Thread.sleep(1000);
+			
+	//		by xpath
+			dr.findElement(By.xpath("/html/body/form/div[3]/div/label/input")).click();
+			Thread.sleep(1000);
+			
+			System.out.println("browser will be close");
+			dr.quit();	
+		}
 
-  # by link text
-  link = dr.find_element(:link_text, 'register')
-  dr.execute_script('$(arguments[0]).fadeOut().fadeIn()', link)
-  sleep 1
+	}
 
-  # by partial link text
-  link = dr.find_element(:partial_link_text, 'reg')
-  dr.execute_script('$(arguments[0]).fadeOut().fadeIn()', link)
-  sleep 1
-
-  # by css selector
-  div = dr.find_element(:css, '.controls')
-  dr.execute_script('$(arguments[0]).fadeOut().fadeIn()', div)
-  sleep 1
-
-  # by xpath
-  dr.find_element(:xpath, '/html/body/form/div[3]/div/label/input').click
-
-  sleep 2
-  dr.quit
 ```
 
 讨论
@@ -473,7 +562,7 @@ webdriver提供了一系列的对象定位方法，常用的有以下几种
 
 场景
 ----
-从上一节的例子中可以看出，webdriver可以很方便的使用find_element方法来定位某个特定的对象，不过有时候我们却需要定位一组对象，这时候就需要使用find_elements方法。
+从上一节的例子中可以看出，webdriver可以很方便的使用findElement方法来定位某个特定的对象，不过有时候我们却需要定位一组对象，这时候就需要使用findElements方法。
 
 定位一组对象一般用于以下场景：
 
@@ -527,35 +616,59 @@ webdriver提供了一系列的对象定位方法，常用的有以下几种
 	</html>
 ```
 
-### find_element.rb
+### find_element.java
 ```
-	#encoding: utf-8
-	require 'selenium-webdriver'
+	import java.io.File;
+	import java.util.List;
 
-	dr = Selenium::WebDriver.for :chrome
-	file_path = 'file:///' + File.expand_path(File.join('.', 'checkbox.html'))
+	import org.openqa.selenium.By;
+	import org.openqa.selenium.WebDriver;
+	import org.openqa.selenium.WebElement;
+	import org.openqa.selenium.chrome.ChromeDriver;
+	import org.openqa.selenium.JavascriptExecutor;
 
-	dr.get file_path
 
-	# 选择所有的checkbox并全部勾上
-	dr.find_elements(:css, 'input[type=checkbox]').each {|c| c.click}
-	dr.navigate.refresh()
-	sleep 1
+	public class SimpleLocate {
 
-	# 打印当前页面上有多少个checkbox
-	puts dr.find_elements(:css, 'input[type=checkbox]').size
+		public static void main(String[] args) throws InterruptedException {
+			WebDriver dr = new ChromeDriver();
+			
+			File file = new File("src/checkbox.html");
+			String filePath = "file:///" + file.getAbsolutePath();
+			System.out.printf("now accesss %s \n", filePath);
+			
+			dr.get(filePath);
+			Thread.sleep(1000);
+			
+	//		选择所有的checkbox并全部勾上
+			List<WebElement> checkboxes = dr.findElements(By.cssSelector("input[type=checkbox]"));
+			for(WebElement checkbox : checkboxes) {
+				checkbox.click();
+			}
+			dr.navigate().refresh();
+			
+	//		打印当前页面上有多少个checkbox
+			System.out.printf("%d\n", checkboxes.size());
+			
+	//		选择页面上所有的input，然后从中过滤出所有的checkbox并勾选之
+			List<WebElement> inputs = dr.findElements(By.tagName("input"));
+			for(WebElement input : inputs){
+				if(input.getAttribute("type").equals("checkbox")){
+					input.click();
+				}
+			}
+			
+	//		把页面上最后1个checkbox的勾给去掉
+			List<WebElement> allCheckboxes = dr.findElements(By.cssSelector("input[type=checkbox]"));
+			allCheckboxes.get(allCheckboxes.size() - 1).click();
+			
+			Thread.sleep(1000);
+			System.out.println("browser will be close");
+			dr.quit();	
+		}
 
-	# 选择页面上所有的input，然后从中过滤出所有的checkbox并勾选之
-	dr.find_elements(:tag_name, 'input').each do |input|
-		input.click if input.attribute(:type) == 'checkbox'
-	end 
-	sleep 1
+	}
 
-	# 把页面上最后1个checkbox的勾给去掉
-	dr.find_elements(:css, 'input[type=checkbox]').last.click
-
-	sleep 2
-	dr.quit
 ```
 
 讨论
@@ -640,25 +753,49 @@ checkbox.html必须与find_elments.rb在同一级目录下
 
 ```
 
-### level_locate.rb
+### level_locate.java
 ```
-	#encoding: utf-8
-	require 'selenium-webdriver'
+	import java.io.File;
 
-	dr = Selenium::WebDriver.for :chrome
-	file_path = 'file:///' + File.expand_path(File.join('.', 'level_locate.html'))
+	import org.openqa.selenium.By;
+	import org.openqa.selenium.WebDriver;
+	import org.openqa.selenium.WebElement;
+	import org.openqa.selenium.chrome.ChromeDriver;
+	import org.openqa.selenium.interactions.Actions;
+	import org.openqa.selenium.support.ui.ExpectedCondition;
+	import org.openqa.selenium.support.ui.WebDriverWait;
 
-	dr.get file_path
 
-	dr.find_element(:link_text, 'Link1').click
-	wait = Selenium::WebDriver::Wait.new({:timeout => 30})
-	wait.until { dr.find_element(:id, 'dropdown1').displayed? }
-	menu = dr.find_element(:id, 'dropdown1').find_element(:link_text, 'Another action')
+	public class LevelLocate {
 
-	dr.action.move_to(menu).perform()
+		public static void main(String[] args) throws InterruptedException {
+			WebDriver dr = new ChromeDriver();
+			
+			File file = new File("src/level_locate.html");
+			String filePath = "file:///" + file.getAbsolutePath();
+			System.out.printf("now accesss %s \n", filePath);
+			
+			dr.get(filePath);
+			Thread.sleep(1000);
+			
+			dr.findElement(By.linkText("Link1")).click();
+			
+			(new WebDriverWait(dr, 10)).until(new ExpectedCondition<Boolean>(){
+				public Boolean apply(WebDriver d){
+					return d.findElement(By.id("dropdown1")).isDisplayed();
+				}
+			} );
+			
+			WebElement menu = dr.findElement(By.id("dropdown1")).findElement(By.linkText("Another action"));
+			(new Actions(dr)).moveToElement(menu).perform();
+			
+			Thread.sleep(1000);
+			System.out.println("browser will be close");
+			dr.quit();	
+		}
 
-	sleep 2
-	dr.quit
+	}
+
 
 ```
 
@@ -694,7 +831,7 @@ move_to方法实际上是模拟把鼠标移动到某个具体的测试对象上�
 定位到具体的对象后，我们就可以对这个对象进行具体的操作，比如先前已经看到过的点击操作(click)。一般来说，webdriver中比较常用的操作对象的方法有下面几个
 
 * click 点击对象
-* send_keys 在对象上模拟按键输入
+* sendKeys 在对象上模拟按键输入
 * clear 清除对象的内容，如果可以的话
 
 代码
@@ -744,30 +881,47 @@ move_to方法实际上是模拟把鼠标移动到某个具体的测试对象上�
 	</html>
 ```
 
-### operate_element.rb
+### operate_element.java
 ```
-	#encoding: utf-8
-	require 'selenium-webdriver'
+	import java.io.File;
 
-	dr = Selenium::WebDriver.for :chrome
-	file_path = 'file:///' + File.expand_path(File.join('.', 'operate_element.html'))
+	import org.openqa.selenium.By;
+	import org.openqa.selenium.WebDriver;
+	import org.openqa.selenium.WebElement;
+	import org.openqa.selenium.chrome.ChromeDriver;
 
-	dr.get file_path
-	#click
-	dr.find_element(:link_text, 'Link1').click
-	sleep(1)
-	dr.find_element(:link_text, 'Link1').click
 
-	#send_keys
-	element = dr.find_element(:name, 'q')
-	element.send_keys('something')
-	sleep(1)
+	public class OperateElement {
 
-	#clear
-	element.clear()
+		public static void main(String[] args) throws InterruptedException {
+			WebDriver dr = new ChromeDriver();
+			
+			File file = new File("src/operate_element.html");
+			String filePath = "file:///" + file.getAbsolutePath();
+			System.out.printf("now accesss %s \n", filePath);
+			
+			dr.get(filePath);
+			Thread.sleep(1000);
+			
+	//		click
+			dr.findElement(By.linkText("Link1")).click();
+			Thread.sleep(1000);
+			dr.findElement(By.linkText("Link1")).click();
+			
+	//		send_keys
+			WebElement element = dr.findElement(By.name("q"));
+			element.sendKeys("something");
+			Thread.sleep(1000);
+			
+	//		clear
+			element.clear();
+			
+			Thread.sleep(1000);
+			System.out.println("browser will be close");
+			dr.quit();	
+		}
 
-	sleep(2)
-	dr.quit
+	}
 
 ```
 
@@ -798,7 +952,7 @@ send keys模拟按键输入
 
 场景
 ----
-send_keys方法可以模拟一些组合键操作，比如ctrl+a等。另外有时候我们需要在测试时使用tab键将焦点转移到下一个元素，这时候也需要send_keys。在某些更复杂的情况下，还会出现使用send_keys来模拟上下键来操作下拉列表的情况。
+sendKeys方法可以模拟一些组合键操作，比如ctrl+a等。另外有时候我们需要在测试时使用tab键将焦点转移到下一个元素，这时候也需要sendKeys。在某些更复杂的情况下，还会出现使用sendKeys来模拟上下键来操作下拉列表的情况。
 
 代码
 ----
@@ -833,29 +987,46 @@ send_keys方法可以模拟一些组合键操作，比如ctrl+a等。另外有�
 	</html>
 ```
 
-### send_keys.rb
+### send_keys.java
 ```
-	#encoding: utf-8
-	require 'selenium-webdriver'
+	import java.io.File;
 
-	dr = Selenium::WebDriver.for :chrome
-	file_path = 'file:///' + File.expand_path(File.join('.', 'send_keys.html'))
-	dr.get file_path
+	import org.openqa.selenium.By;
+	import org.openqa.selenium.Keys;
+	import org.openqa.selenium.WebDriver;
+	import org.openqa.selenium.chrome.ChromeDriver;
 
-	# copy content of A
-	dr.find_element(:id, 'A').send_keys([:control, 'a'])
-	dr.find_element(:id, 'A').send_keys([:control, 'x'])
-	sleep(1)
 
-	# paste to B
-	dr.find_element(:id, 'B').send_keys([:control, 'v'])
-	sleep(1)
+	public class SendKeys {
 
-	# send keys to A
-	dr.find_element(:id, 'A').send_keys('watir', '-', 'webdriver', :space, 'is', :space, 'better')
-	sleep(2)
+		public static void main(String[] args) throws InterruptedException {
+			WebDriver dr = new ChromeDriver();
+			
+			File file = new File("src/send_keys.html");
+			String filePath = "file:///" + file.getAbsolutePath();
+			System.out.printf("now accesss %s \n", filePath);
+			
+			dr.get(filePath);
+			Thread.sleep(1000);
+			
+	//		copy content of A
+			dr.findElement(By.id("A")).sendKeys(Keys.chord(Keys.CONTROL + "a"));
+			Thread.sleep(1000);
+			dr.findElement(By.id("A")).sendKeys(Keys.chord(Keys.CONTROL + "x"));
+			
+	//		paste to B
+			dr.findElement(By.id("B")).sendKeys(Keys.chord(Keys.CONTROL + "v"));
+			
+	//		SendKeys to A
+			dr.findElement(By.id("A")).sendKeys(Keys.chord("watir webdriver is better than selenium webdriver"));
+			
+			Thread.sleep(1000);
+			System.out.println("browser will be close");
+			dr.quit();	
+		}
 
-	dr.quit()
+	}
+
 ```
 
 
@@ -926,21 +1097,47 @@ button group就是按钮组，将一组按钮排列在一起。处理这种对�
 	</html>
 ```
 
-### button_group.rb
+### button_group.java
 ```
-	#encoding: utf-8
-	require 'selenium-webdriver'
+	import java.io.File;
+	import java.util.List;
 
-	dr = Selenium::WebDriver.for :chrome
-	file_path = 'file:///' + File.expand_path(File.join('.', 'button_group.html'))
-	dr.get file_path
+	import org.openqa.selenium.By;
+	import org.openqa.selenium.Keys;
+	import org.openqa.selenium.WebDriver;
+	import org.openqa.selenium.WebElement;
+	import org.openqa.selenium.chrome.ChromeDriver;
 
-	# 定位text是second的按钮
-	second_btn = dr.find_element(:class, 'btn-group').find_elements(:class, 'btn').detect {|btn| btn.text == 'second'}
-	second_btn.click()
-	sleep(2)
 
-	dr.quit()
+	public class ButtonGroup {
+
+		public static void main(String[] args) throws InterruptedException {
+			WebDriver dr = new ChromeDriver();
+			
+			File file = new File("src/button_group.html");
+			String filePath = "file:///" + file.getAbsolutePath();
+			System.out.printf("now accesss %s \n", filePath);
+			
+			dr.get(filePath);
+			Thread.sleep(1000);
+			
+	//		定位text是second的按钮
+			List<WebElement> btns = dr.findElement(By.className("btn-group")).findElements(By.className("btn"));
+			
+			for(WebElement btn : btns){
+				if(btn.getText().equals("second")){
+					btn.click();
+					break;
+				}
+			}
+			
+			Thread.sleep(1000);
+			System.out.println("browser will be close");
+			dr.quit();	
+		}
+
+	}
+
 ```
 
 讨论
@@ -1013,26 +1210,49 @@ button dropdown就是把按钮和下拉菜单弄到了一起。处理这种对�
 	</html>
 ```
 
-### button_dropdown.rb
+### button_dropdown.java
 ```
-	#encoding: utf-8
-	require 'selenium-webdriver'
-	
-	dr = Selenium::WebDriver.for :chrome
-	file_path = 'file:///' + File.expand_path(File.join('.', 'button_dropdown.html'))
-	dr.get file_path
-	
-	# 定位text是watir-webdriver的下拉菜单
-	# 首先显示下拉菜单
-	dr.find_element(:link_text, 'Info').click()
-	wait = Selenium::WebDriver::Wait.new(timeout: 10)
-	wait.until { dr.find_element(:class, 'dropdown-menu').displayed? }
-	
-	# 通过ul再层级定位
-	dr.find_element(:class, 'dropdown-menu').find_element(:link_text, 'watir-webdriver').click()
-	sleep(1)
-	
-	dr.quit()
+	import java.io.File;
+
+	import org.openqa.selenium.By;
+	import org.openqa.selenium.WebDriver;
+	import org.openqa.selenium.chrome.ChromeDriver;
+	import org.openqa.selenium.support.ui.ExpectedCondition;
+	import org.openqa.selenium.support.ui.WebDriverWait;
+
+
+	public class ButtonDropdown {
+
+		public static void main(String[] args) throws InterruptedException {
+			WebDriver dr = new ChromeDriver();
+			
+			File file = new File("src/button_dropdown.html");
+			String filePath = "file:///" + file.getAbsolutePath();
+			System.out.printf("now accesss %s \n", filePath);
+			
+			dr.get(filePath);
+			Thread.sleep(1000);
+			
+	//		定位text是watir-webdriver的下拉菜单
+	//		首先显示下拉菜单
+			dr.findElement(By.linkText("Info")).click();
+			
+			(new WebDriverWait(dr, 10)).until(new ExpectedCondition<Boolean>() {
+				public Boolean apply(WebDriver d){
+					return d.findElement(By.className("dropdown-menu")).isDisplayed();
+				}
+			});
+			
+	//		通过ul再层级定位
+			dr.findElement(By.className("dropdown-menu")).findElement(By.linkText("watir-webdriver")).click();
+			
+			Thread.sleep(1000);
+			System.out.println("browser will be close");
+			dr.quit();	
+		}
+
+	}
+
 
 ```
 
@@ -1104,23 +1324,44 @@ navs可以看作是简单的类似于tab的导航栏。一般来说导航栏都�
 	</html>
 ```
 
-### navs.rb
+### navs.java
 ```
-	#encoding: utf-8
-	require 'selenium-webdriver'
+	import java.io.File;
+	import java.util.List;
 
-	dr = Selenium::WebDriver.for :chrome
-	file_path = 'file:///' + File.expand_path(File.join('.', 'navs.html'))
-	dr.get file_path
+	import org.openqa.selenium.By;
+	import org.openqa.selenium.Keys;
+	import org.openqa.selenium.WebDriver;
+	import org.openqa.selenium.WebElement;
+	import org.openqa.selenium.chrome.ChromeDriver;
 
-	# 方法1：层级定位，先定位ul再定位li
-	dr.find_element(:class, 'nav').find_element(:link_text, 'About').click()
-	sleep(1)
 
-	# 方法2: 直接定位link
-	dr.find_element(:link_text, 'Home').click()
+	public class Navs {
 
-	dr.quit()
+		public static void main(String[] args) throws InterruptedException {
+			WebDriver dr = new ChromeDriver();
+			
+			File file = new File("src/navs.html");
+			String filePath = "file:///" + file.getAbsolutePath();
+			System.out.printf("now accesss %s \n", filePath);
+			
+			dr.get(filePath);
+			Thread.sleep(1000);
+			
+	//		方法1：层级定位，先定位ul再定位li
+			dr.findElement(By.className("nav")).findElement(By.linkText("About")).click();
+			Thread.sleep(1000);
+			
+	//		方法2: 直接定位link
+			dr.findElement(By.linkText("Home")).click();
+			
+			Thread.sleep(1000);
+			System.out.println("browser will be close");
+			dr.quit();	
+		}
+
+	}
+
 ```
 
 
@@ -1186,26 +1427,48 @@ navs可以看作是简单的类似于tab的导航栏。一般来说导航栏都�
 
 ```
 
-### breadcrumb.rb
+### breadcrumb.java
 ```
-	#encoding: utf-8
-	require 'selenium-webdriver'
+	import java.io.File;
+	import java.util.List;
 
-	dr = Selenium::WebDriver.for :chrome
-	file_path = 'file:///' + File.expand_path(File.join('.', 'breadcrumb.html'))
-	dr.get file_path
+	import org.openqa.selenium.By;
+	import org.openqa.selenium.WebDriver;
+	import org.openqa.selenium.WebElement;
+	import org.openqa.selenium.chrome.ChromeDriver;
 
-	# 获得其父层级
-	anstors = dr.find_element(:class, 'breadcrumb').find_elements(:tag_name, 'a').map { |link| link.text }
-	p anstors
-	sleep(1)
 
-	# 获取当前层级
-	# 由于页面上可能有很多class为active的元素
-	# 所以使用层级定位最为保险
-	puts dr.find_element(:class, 'breadcrumb').find_element(:class, 'active').text
+	public class Breadcrumb {
 
-	dr.quit()
+		public static void main(String[] args) throws InterruptedException {
+			WebDriver dr = new ChromeDriver();
+			
+			File file = new File("src/breadcrumb.html");
+			String filePath = "file:///" + file.getAbsolutePath();
+			System.out.printf("now accesss %s \n", filePath);
+			
+			dr.get(filePath);
+			Thread.sleep(1000);
+			
+	//		获得其父层级
+			List<WebElement> ancestors = dr.findElement(By.className("breadcrumb")).findElements(By.tagName("a"));
+			for(WebElement link : ancestors){
+				System.out.println(link.getText());
+			}
+			
+	//		获取当前层级
+	//		由于页面上可能有很多class为active的元素
+	//		所以使用层级定位最为保险
+			WebElement current = dr.findElement(By.className("breadcrumb")).findElement(By.className("active"));
+			System.out.println(current.getText());
+			
+			Thread.sleep(1000);
+			System.out.println("browser will be close");
+			dr.quit();	
+		}
+
+	}
+
 
 ```
 
@@ -1286,24 +1549,45 @@ navs可以看作是简单的类似于tab的导航栏。一般来说导航栏都�
 	
 ```
 
-### pagination.rb
+### pagination.java
 ```
-	#encoding: utf-8
-	require 'selenium-webdriver'
+	import java.io.File;
+	import java.util.List;
 
-	dr = Selenium::WebDriver.for :chrome
-	file_path = 'file:///' + File.expand_path(File.join('.', 'pagination.html'))
-	dr.get file_path
+	import org.openqa.selenium.By;
+	import org.openqa.selenium.WebDriver;
+	import org.openqa.selenium.WebElement;
+	import org.openqa.selenium.chrome.ChromeDriver;
 
-	# 获得所有分页的数量
-	# -2是因为要去掉上一个和下一个
-	total_pages = dr.find_element(:class, 'pagination').find_elements(:tag_name, 'li').size - 2
-	puts "total page is #{total_pages}"
 
-	# 获取当前页面的url以及当前页面是第几页
-	current_page = dr.find_element(:class, 'pagination').find_element(:class, 'active')
-	puts "current page is #{current_page.text}"
-	dr.quit()
+	public class Pagination {
+
+		public static void main(String[] args) throws InterruptedException {
+			WebDriver dr = new ChromeDriver();
+			
+			File file = new File("src/pagination.html");
+			String filePath = "file:///" + file.getAbsolutePath();
+			System.out.printf("now accesss %s \n", filePath);
+			
+			dr.get(filePath);
+			Thread.sleep(1000);
+			
+	//		获得所有分页的数量
+	//		-2是因为要去掉上一个和下一个
+			int total_pages = dr.findElement(By.className("pagination")).findElements(By.tagName("li")).size() - 2;
+			System.out.printf("Total page is %d\n", total_pages);
+			
+	//		取当前页面的url以及当前页面是第几页
+			WebElement current_page = dr.findElement(By.className("pagination")).findElement(By.className("active"));
+			System.out.printf("Current page is %s\n", current_page.getText());
+			
+			Thread.sleep(1000);
+			System.out.println("browser will be close");
+			dr.quit();	
+		}
+
+	}
+
 ```
 
 
@@ -1391,33 +1675,56 @@ navs可以看作是简单的类似于tab的导航栏。一般来说导航栏都�
 
 ```
 
-### modal.rb
+### modal.java
 ```
-	#encoding: utf-8
-	require 'selenium-webdriver'
+	import java.io.File;
+	import java.util.List;
 
-	dr = Selenium::WebDriver.for :chrome
-	file_path = 'file:///' + File.expand_path(File.join('.', 'modal.html'))
-	dr.get file_path
+	import org.openqa.selenium.By;
+	import org.openqa.selenium.JavascriptExecutor;
+	import org.openqa.selenium.Keys;
+	import org.openqa.selenium.WebDriver;
+	import org.openqa.selenium.WebElement;
+	import org.openqa.selenium.chrome.ChromeDriver;
+	import org.openqa.selenium.support.ui.ExpectedCondition;
+	import org.openqa.selenium.support.ui.WebDriverWait;
 
-	# 打开对话框
-	dr.find_element(:id, 'show_modal').click
+	public class Modal {
 
-	wait = Selenium::WebDriver::Wait.new(timeout: 10)
-	wait.until { dr.find_element(id: 'myModal').displayed? }
+		public static void main(String[] args) throws InterruptedException {
+			WebDriver dr = new ChromeDriver();
+			
+			File file = new File("src/modal.html");
+			String filePath = "file:///" + file.getAbsolutePath();
+			System.out.printf("now accesss %s \n", filePath);
+			
+			dr.get(filePath);
+			Thread.sleep(1000);
+			
+	//		打开对话框
+			dr.findElement(By.id("show_modal")).click();
+			
+			(new WebDriverWait(dr, 10)).until(
+					new ExpectedCondition<Boolean>() {
+						public Boolean apply(WebDriver d) {
+							return d.findElement(By.id("myModal")).isDisplayed();
+						}
+					}
+			);
+			
+	//		 点击对话框中的链接
+	//		 由于对话框中的元素被蒙板所遮挡，直接点击会报 Element is not clickable的错误
+	//		 所以使用js来模拟click
+	//		 在watir-webdriver中只需要fire_event(:click)就可以了
+			WebElement link = dr.findElement(By.id("myModal")).findElement(By.id("click"));
+			((JavascriptExecutor)dr).executeScript("$(arguments[0]).click()", link);
+			
+			Thread.sleep(1000);
+			System.out.println("browser will be close");
+			dr.quit();	
+		}
+	}
 
-	# 点击对话框中的链接
-	# 由于对话框中的元素被蒙板所遮挡，直接点击会报 Element is not clickable的错误
-	# 所以使用js来模拟click
-	# 在watir-webdriver中只需要fire_event(:click)就可以了
-	link = dr.find_element(id: 'myModal').find_element(id: 'click')
-	dr.execute_script('$(arguments[0]).click()', link)
-	sleep(2)
-
-	# 关闭对话框
-	dr.find_element(:class, 'modal-footer').find_elements(:tag_name, 'button').first.click
-
-	dr.quit()
 ```
 
 
@@ -1446,9 +1753,9 @@ navs可以看作是简单的类似于tab的导航栏。一般来说导航栏都�
 
 场景
 ----
-获取测试对象的内容是前端自动化测试里一定会使用到的技术。比如我们要判断页面上是否显示了一个提示，那么我们就需要找到这个提示对象，然后获取其中的文字，再跟我们的预期进行比较。在webdriver中使用element.attribute()方法可以获取dom元素(测试对象)的属性。
+获取测试对象的内容是前端自动化测试里一定会使用到的技术。比如我们要判断页面上是否显示了一个提示，那么我们就需要找到这个提示对象，然后获取其中的文字，再跟我们的预期进行比较。在webdriver中使用element.getAttribute()方法可以获取dom元素(测试对象)的属性。
 
-获取测试对象的属性能够帮我们更好的进行对象的定位。比如页面上有很多class都是'btn'的div，而我们需要定位其中1个有具有title属性的div。由于selenium-webdriver是不支持直接使用title来定位对象的，所以我们只能先把所有class是btn的div都找到，然后遍历这些div，获取这些div的title属性，一旦发现具体title属性的div，那么返回这个div既可。在webdriver中，使用element.text()方法可以返回dom节点的内容(text)。
+获取测试对象的属性能够帮我们更好的进行对象的定位。比如页面上有很多class都是'btn'的div，而我们需要定位其中1个有具有title属性的div。由于selenium-webdriver是不支持直接使用title来定位对象的，所以我们只能先把所有class是btn的div都找到，然后遍历这些div，获取这些div的title属性，一旦发现具体title属性的div，那么返回这个div既可。在webdriver中，使用element.getText()方法可以返回dom节点的内容(text)。
 
 代码
 ----
@@ -1481,24 +1788,44 @@ navs可以看作是简单的类似于tab的导航栏。一般来说导航栏都�
 	</html>
 ```
 
-### attribute.rb
+### attribute.java
 ```
-	#encoding: utf-8
-	require 'selenium-webdriver'
+	import java.io.File;
+	import java.util.List;
 
-	dr = Selenium::WebDriver.for :chrome
-	file_path = 'file:///' + File.expand_path(File.join('.', 'attribute.html'))
-	dr.get file_path
+	import org.openqa.selenium.By;
+	import org.openqa.selenium.WebDriver;
+	import org.openqa.selenium.WebElement;
+	import org.openqa.selenium.chrome.ChromeDriver;
 
-	link = dr.find_element(id: 'tooltip')
 
-	# 获得tooltip的内容
-	puts link.attribute('data-original-title')
+	public class Attribute {
 
-	# 获取该链接的text
-	puts link.text()
+		public static void main(String[] args) throws InterruptedException {
+			WebDriver dr = new ChromeDriver();
+			
+			File file = new File("src/attribute.html");
+			String filePath = "file:///" + file.getAbsolutePath();
+			System.out.printf("now accesss %s \n", filePath);
+			
+			dr.get(filePath);
+			Thread.sleep(1000);
+			
+			WebElement link = dr.findElement(By.id("tooltip"));
+			
+	//		获得tooltip的内容
+			System.out.println(link.getAttribute("data-original-title"));
+			
+	//		获取该链接的text
+			System.out.println(link.getText());
+			
+			Thread.sleep(1000);
+			System.out.println("browser will be close");
+			dr.quit();	
+		}
 
-	dr.quit()
+	}
+
 ```
 
 
@@ -1560,21 +1887,42 @@ navs可以看作是简单的类似于tab的导航栏。一般来说导航栏都�
 	</html>
 ```
 
-### css.rb
+### css.java
 ```
-	#encoding: utf-8
-	require 'selenium-webdriver'
+	import java.io.File;
+	import java.util.List;
 
-	dr = Selenium::WebDriver.for :chrome
-	file_path = 'file:///' + File.expand_path(File.join('.', 'css.html'))
-	dr.get file_path
+	import org.openqa.selenium.By;
+	import org.openqa.selenium.WebDriver;
+	import org.openqa.selenium.WebElement;
+	import org.openqa.selenium.chrome.ChromeDriver;
 
-	link = dr.find_element(id: 'tooltip')
-	puts link.css_value(:color)
 
-	puts dr.find_element(:tag_name, 'h3').css_value('font')
+	public class Css {
 
-	dr.quit()
+		public static void main(String[] args) throws InterruptedException {
+			WebDriver dr = new ChromeDriver();
+			
+			File file = new File("src/css.html");
+			String filePath = "file:///" + file.getAbsolutePath();
+			System.out.printf("now accesss %s \n", filePath);
+			
+			dr.get(filePath);
+			Thread.sleep(1000);
+			
+			WebElement link = dr.findElement(By.id("tooltip"));
+			
+			System.out.println(link.getCssValue("color"));
+			
+			System.out.println(dr.findElement(By.tagName("h3")).getCssValue("font"));
+			
+			Thread.sleep(1000);
+			System.out.println("browser will be close");
+			dr.quit();	
+		}
+
+	}
+
 
 ```
 
@@ -1606,10 +1954,10 @@ navs可以看作是简单的类似于tab的导航栏。一般来说导航栏都�
 ----
 在web自动化测试中，我们需要获取测试对象的四种状态
 
-* 是否显示。使用element.displayed?()方法；
-* 是否存在。使用find_element方法，捕获其抛出的异常，如果是NoSuchElement异常的话则可以确定该元素不存在；
-* 是否被选中。一般是判断表单元素，比如radio或checkbox是否被选中。使用element.selected?()方法；
-* 是否enable，也就是是否是灰化状态。使用element.enabled?()方法；
+* 是否显示。使用element.isDisplayed()方法；
+* 是否存在。使用findElement方法，捕获其抛出的异常，如果是NoSuchElementException的话则可以确定该元素不存在；
+* 是否被选中。一般是判断表单元素，比如radio或checkbox是否被选中。使用element.isSelected()方法；
+* 是否enable，也就是是否是灰化状态。使用element.isEnabled()方法；
 
 代码
 ----
@@ -1619,7 +1967,7 @@ navs可以看作是简单的类似于tab的导航栏。一般来说导航栏都�
 	<html>
 		<head>
 			<meta http-equiv="content-type" content="text/html;charset=utf-8" />
-			<title>attribute</title>		
+			<title>status</title>		
 			<script type="text/javascript" async="" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 			<link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" />		
 			<script type="text/javascript">
@@ -1630,52 +1978,79 @@ navs可以看作是简单的类似于tab的导航栏。一般来说导航栏都�
 		</head>
 			
 		<body>
-			<h3>attribute</h3>
+			<h3>status</h3>
 			<div class="row-fluid">
-				<div class="span6">		
-					<a id="tooltip" href="#" data-toggle="tooltip" title="watir-webdriver better than selenium-webdriver">hover to see tooltip</a>
+				<div class="span3">		
+					<input name="user" placeholder="Disabled TextField" disabled  />				
 				</div>		
+				<div class="span3">
+					<a class="btn disabled">Disabled Button</a>
+				</div>
+				<div class="span3">
+					<input name="radio" type="radio" />
+				</div>
 			</div>		
 		</body>
 		<script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
 	</html>
 ```
 
-### status.rb
+### status.java
 ```
-	#encoding: utf-8
-	require 'selenium-webdriver'
+	import java.io.File;
+	import java.util.List;
 
-	dr = Selenium::WebDriver.for :chrome
-	file_path = 'file:///' + File.expand_path(File.join('.', 'status.html'))
-	dr.get file_path
+	import org.openqa.selenium.By;
+	import org.openqa.selenium.JavascriptExecutor;
+	import org.openqa.selenium.NoSuchElementException;
+	import org.openqa.selenium.WebDriver;
+	import org.openqa.selenium.WebElement;
+	import org.openqa.selenium.chrome.ChromeDriver;
 
-	text_field = dr.find_element(:name, 'user')
-	puts text_field.enabled?
 
-	# 直接用enabled?方法去判断该button的话返回的会是true
-	# 这是因为button是使用css方法去disabled的，并不是真正的disable
-	# 这时候需要判断其class里是否有disabled这值来判断其是否处于disable状态
-	puts dr.find_element(:class, 'btn').enabled?
+	public class Status {
 
-	# 隐藏掉text_field
-	# 判断其是否显示
-	dr.execute_script('$(arguments[0]).hide()', text_field)
-	puts text_field.displayed?
+		public static void main(String[] args) throws InterruptedException {
+			WebDriver dr = new ChromeDriver();
+			
+			File file = new File("src/status.html");
+			String filePath = "file:///" + file.getAbsolutePath();
+			System.out.printf("now accesss %s \n", filePath);
+			
+			dr.get(filePath);
+			Thread.sleep(1000);	
+			
+			WebElement textField = dr.findElement(By.name("user"));
+			System.out.println(textField.isEnabled());
+			
+	//		直接用isEnabled方法去判断该button的话返回的会是true
+	//		这是因为button是使用css方法去disabled的，并不是真正的disable
+	//		这时候需要判断其class里是否有disabled这值来判断其是否处于disable状态
+			System.out.println(dr.findElement(By.className("btn")).isEnabled());
+			
+	//		隐藏掉textField
+	//		判断其是否显示
+			((JavascriptExecutor)dr).executeScript("$(arguments[0]).hide()", textField);
+			System.out.println(textField.isDisplayed());
+			
+	//		使用click方法选择raido
+			WebElement radio = dr.findElement(By.name("radio"));
+			radio.click();
+			System.out.println(radio.isSelected());
+			
+			try{
+				dr.findElement(By.id("none"));
+			} catch(NoSuchElementException e){
+				System.out.println("element does not exist");
+			}
+			
+			Thread.sleep(1000);
+			System.out.println("browser will be close");
+			dr.quit();	
+		}
 
-	# 使用click方法选择raido
-	radio = dr.find_element(name: 'radio')
-	radio.click()
-	puts radio.selected?
+	}
 
-	# 判断元素是否存在
-	begin
-		dr.find_element(id: 'none')
-	rescue Selenium::WebDriver::Error::NoSuchElementError
-		puts 'element does not exist'
-	end 
-
-	dr.quit()
 
 ```
 
@@ -1703,14 +2078,14 @@ navs可以看作是简单的类似于tab的导航栏。一般来说导航栏都�
 
 
 
-获取测试对象的状态
+form的操作
 ===================
 
 场景
 -----
 表单对象的操作比较简单，只需要记住下面几点
 
-* 使用send_keys方法往多行文本框和单行文本框赋值；
+* 使用sendKeys方法往多行文本框和单行文本框赋值；
 * 使用click方法选择checkbox
 * 使用click方法选择radio
 * 使用click方法点击button
@@ -1770,35 +2145,59 @@ navs可以看作是简单的类似于tab的导航栏。一般来说导航栏都�
 		</body>
 		<script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
 	</html>
+
+###Form.java
+
 ```
-	#encoding: utf-8
-	require 'selenium-webdriver'
+	import java.io.File;
+	import java.util.List;
 
-	dr = Selenium::WebDriver.for :chrome
-	file_path = 'file:///' + File.expand_path(File.join('.', 'form.html'))
-	dr.get file_path
+	import org.openqa.selenium.Alert;
+	import org.openqa.selenium.By;
+	import org.openqa.selenium.Keys;
+	import org.openqa.selenium.WebDriver;
+	import org.openqa.selenium.WebElement;
+	import org.openqa.selenium.chrome.ChromeDriver;
 
-	# 选中checkbox
-	dr.find_element(:css, 'input[type=checkbox]').click()
-	sleep(1)
 
-	# 选中radio
-	dr.find_element(:css, 'input[type=radio]').click()
-	sleep(1)
+	public class Form {
 
-	# 选择下拉菜单中的最后一项
-	dr.find_element(:tag_name, 'select').find_elements(:tag_name, 'option').last.click()
-	sleep(1)
+		public static void main(String[] args) throws InterruptedException {
+			WebDriver dr = new ChromeDriver();
+			
+			File file = new File("src/form.html");
+			String filePath = "file:///" + file.getAbsolutePath();
+			System.out.printf("now accesss %s \n", filePath);
+			
+			dr.get(filePath);
+			Thread.sleep(1000);
+			
+	//		选中checkbox
+			dr.findElement(By.cssSelector("input[type=checkbox]")).click();
+			Thread.sleep(1000);
+			
+	//		选中radio
+			dr.findElement(By.cssSelector("input[type=radio]")).click();
+			Thread.sleep(1000);
+			
+	//		选择下拉菜单中的最后一项
+			List<WebElement> options = dr.findElement(By.tagName("select")).findElements(By.tagName("option"));
+			options.get(options.size() - 1).click();
+			Thread.sleep(1000);
+			
+	//		点击提交按钮
+			dr.findElement(By.cssSelector("input[type=submit]")).click();
+			
+			Alert alert = dr.switchTo().alert();
+			System.out.println(alert.getText());
+			alert.accept();
+			
+			Thread.sleep(1000);
+			System.out.println("browser will be close");
+			dr.quit();	
+		}
 
-	# 点击提交按钮
-	dr.find_element(:css, 'input[type=submit]').click()
-	sleep(1)
-
-	alert = dr.switch_to.alert
-	puts alert.text
-	alert.accept()
-
-	dr.quit()
+	}
 ```
 
 
@@ -1829,7 +2228,7 @@ navs可以看作是简单的类似于tab的导航栏。一般来说导航栏都�
 ----
 如果你熟悉js的话，那么使用webdriver执行js就是一件很高效的事情了。在webdriver脚本中直接执行js的好处很多，这里就不一一枚举了。
 
-webdriver提供了execute_script()接口来帮助我们完成这一工作。在实际的测试脚本中，以下两种场景是经常遇到的
+webdriver提供了JavascriptExecutor(dr).executeScript()接口来帮助我们完成这一工作。在实际的测试脚本中，以下两种场景是经常遇到的
 
 * 在页面直接执行一段js
 * 在某个已经定位的元素的上执行js
@@ -1867,26 +2266,47 @@ webdriver提供了execute_script()接口来帮助我们完成这一工作。在�
 
 ```
 
-### js.rb
+### js.java
 ```
-  #encoding: utf-8
-  require 'selenium-webdriver'
+	import java.io.File;
+	import java.util.List;
 
-  dr = Selenium::WebDriver.for :chrome
-  file_path = 'file:///' + File.expand_path(File.join('.', 'js.html'))
-  dr.get file_path
+	import org.openqa.selenium.Alert;
+	import org.openqa.selenium.By;
+	import org.openqa.selenium.JavascriptExecutor;
+	import org.openqa.selenium.Keys;
+	import org.openqa.selenium.WebDriver;
+	import org.openqa.selenium.WebElement;
+	import org.openqa.selenium.chrome.ChromeDriver;
 
-  # 在页面上直接执行js
-  dr.execute_script('$("#tooltip").fadeOut();')
-  sleep(1)
 
-  # 在已经定位的元素上执行js
-  button = dr.find_element(class: 'btn')
-  dr.execute_script('$(arguments[0]).fadeOut()', button)
-  sleep(1)
+	public class Js {
 
-  dr.quit()
+		public static void main(String[] args) throws InterruptedException {
+			WebDriver dr = new ChromeDriver();
+			
+			File file = new File("src/js.html");
+			String filePath = "file:///" + file.getAbsolutePath();
+			System.out.printf("now accesss %s \n", filePath);
+			
+			dr.get(filePath);
+			Thread.sleep(1000);
+			
+	//		在页面上直接执行js
+			((JavascriptExecutor)dr).executeScript("$('#tooltip').fadeOut();");
+			Thread.sleep(1000);
+			
+	//		在已经定位的元素上执行js
+			WebElement button = dr.findElement(By.className("btn"));
+			((JavascriptExecutor)dr).executeScript("$(arguments[0]).fadeOut();", button);
+				
+			
+			Thread.sleep(1000);
+			System.out.println("browser will be close");
+			dr.quit();	
+		}
 
+	}
 ```
 
 
@@ -1917,10 +2337,10 @@ webdriver提供了execute_script()接口来帮助我们完成这一工作。在�
 ----
 webdriver中处理原生的js alert confirm 以及prompt是很简单的。具体思路是使用switch_to.alert()方法定位到alert/confirm/prompt。然后使用text/accept/dismiss/send_keys按需进行操做
 
-* text。返回alert/confirm/prompt中的文字信息
+* getText。返回alert/confirm/prompt中的文字信息
 * accept。点击确认按钮
 * dismiss。点击取消按钮，如果有的话
-* send_keys。向prompt中输入文字
+* sendKeys。向prompt中输入文字
 
 代码
 ----
@@ -1956,23 +2376,43 @@ webdriver中处理原生的js alert confirm 以及prompt是很简单的。具体
   </html>
 ```
 
-### alert.rb
+### alert.java
 ```
-  #encoding: utf-8
-  require 'selenium-webdriver'
+	import java.io.File;
+	import java.util.List;
+	import org.openqa.selenium.Alert;
+	import org.openqa.selenium.By;
+	import org.openqa.selenium.JavascriptExecutor;
+	import org.openqa.selenium.Keys;
+	import org.openqa.selenium.WebDriver;
+	import org.openqa.selenium.WebElement;
+	import org.openqa.selenium.chrome.ChromeDriver;
 
-  dr = Selenium::WebDriver.for :chrome
-  file_path = 'file:///' + File.expand_path(File.join('.', 'alert.html'))
-  dr.get file_path
 
-  # 点击链接弹出alert
-  dr.find_element(:id, 'tooltip').click()
+	public class AlertExample {
 
-  alert = dr.switch_to.alert
-  alert.accept()
+		public static void main(String[] args) throws InterruptedException {
+			WebDriver dr = new ChromeDriver();
+			
+			File file = new File("src/alert.html");
+			String filePath = "file:///" + file.getAbsolutePath();
+			System.out.printf("now accesss %s \n", filePath);
+			
+			dr.get(filePath);
+			Thread.sleep(1000);
+			
+	//		点击链接弹出alert
+			dr.findElement(By.id("tooltip")).click();
+			
+			Alert alert = dr.switchTo().alert();
+			alert.accept();
+							
+			Thread.sleep(1000);
+			System.out.println("browser will be close");
+			dr.quit();	
+		}
 
-  sleep(1)
-  dr.quit()
+	}
 ```
 
 
@@ -2001,22 +2441,20 @@ wait
 
 场景
 ----
-Wait类的使用场景是在页面上进行某些操作，然后页面上就会出现或隐藏一些元素，此时使用Wait类的until方法来等待这些效果完成以便进行后续的操作。另外页面加载时有可能会执行一些ajax，这时候也需要去Wait的until的等待ajax的请求执行完毕。
+Wait类的使用场景是在页面上进行某些操作，然后页面上就会出现或隐藏一些元素，此时使用WebDriverWait类的until方法来等待这些效果完成以便进行后续的操作。另外页面加载时有可能会执行一些ajax，这时候也需要去WebDriverWait的until的等待ajax的请求执行完毕。
 
 具体一点的例子前面也曾出现过，点击一个链接然后会出现一个下拉菜单，此时需要先等待下拉菜单出现方可进行点击菜单项的操作。
 
-在实例化Wait类时，可以传入以下的一些参数
+在实例化WebDriverWait类时，有下面2个构造方法
+* public WebDriverWait(WebDriver driver, long timeOutInSeconds)
+* public WebDriverWait(WebDriver driver, long timeOutInSeconds, long sleepInMillis)
 
-* timeout。总共等待多久,默认5s
-* interval。每隔多久检查一次代码块里的值，默认0.2秒
-* message。如果超时则显示message
-* ignored。代码块中忽略的异常。也就是说如果代码块中抛出了这个异常，那么webdriver将忽略这个异常，继续进行等待，直到满足下面所列举的退出条件为止。默认情况下NoSuchElement异常是被忽略的。
+其参数为
+* WebDriver driver。不言而喻
+* long timeOutInSeconds。总体的超时时间，最多等这么久。
+* long sleepInMillis。每隔多久去检查一次until的结果
 
-until方法会一直等下去，直到
-
-* 代码块中的内容为true(不为false或没有抛出异常)
-* 超时,也就是超过了timeout设置的时间
-
+另外要注意的是，默认情况下，unitl中的NotFoundException会被忽略，但是其他异常还是正常传播的。你可以通过ignoring(exceptions to add)自己定义需要忽略的异常。
 
 代码
 ----
@@ -2052,24 +2490,48 @@ until方法会一直等下去，直到
   </html>
 ```
 
-### wait.rb
+### wait.java
 ```
-  #encoding: utf-8
-  require 'selenium-webdriver'
+	import java.io.File;
+	import java.util.List;
+	import org.openqa.selenium.Alert;
+	import org.openqa.selenium.By;
+	import org.openqa.selenium.JavascriptExecutor;
+	import org.openqa.selenium.Keys;
+	import org.openqa.selenium.WebDriver;
+	import org.openqa.selenium.WebElement;
+	import org.openqa.selenium.chrome.ChromeDriver;
+	import org.openqa.selenium.support.ui.ExpectedCondition;
+	import org.openqa.selenium.support.ui.WebDriverWait;
 
-  dr = Selenium::WebDriver.for :chrome
-  file_path = 'file:///' + File.expand_path(File.join('.', 'wait.html'))
-  dr.get file_path
 
-  # 点击按钮
-  dr.find_element(:id, 'btn').click()
+	public class WaitExample {
 
-  wait = Selenium::WebDriver::Wait.new()
-  wait.until { dr.find_element(class: 'label').displayed? }
+		public static void main(String[] args) throws InterruptedException {
+			WebDriver dr = new ChromeDriver();
+			
+			File file = new File("src/wait.html");
+			String filePath = "file:///" + file.getAbsolutePath();
+			System.out.printf("now accesss %s \n", filePath);
+			
+			dr.get(filePath);
+			Thread.sleep(1000);
+			
+	//		点击按钮
+			dr.findElement(By.id("btn")).click();
+			
+			(new WebDriverWait(dr, 10)).until(new ExpectedCondition<Boolean>() {
+					public Boolean apply(WebDriver d) {
+											return d.findElement(By.className("label")).isDisplayed();
+									}
+				});
+							
+			Thread.sleep(1000);
+			System.out.println("browser will be close");
+			dr.quit();	
+		}
 
-  sleep(2)
-  dr.quit()
-
+	}
 ```
 
 
@@ -2098,11 +2560,17 @@ until方法会一直等下去，直到
 
 场景
 ----
-处理frame需要用到2个方法，分别是switch_to.frame(name_or_id)和switch_to.default_content()
+处理frame需要用到2个方法，分别是switchTo().frame(element|index|id)和switchTo.defaultContent()
 
-switch_to.frame方法把当前定位的主体切换了frame里。怎么理解这句话呢？我们可以从frame的实质去理解。frame中实际上是嵌入了另一个页面，而webdriver每次只能在一个页面识别，因此才需要用switch_to.frame方法去获取frame中嵌入的页面，对那个页面里的元素进行定位。
+switchTo().frame()方法的参数值得一提。其支持
 
-switch_to.default_content方法的话则是从frame中嵌入的页面里跳出，跳回到最外面的原始页面中。
+* WebElement， 可以传入一个已经定位的frame元素。如 switchTo().frame(dr.findElement(By.id("myFrame")))
+* int index， 可以传入页面上frame的索引，如0表示第1个frame
+* String id, 可以传入frame的id
+
+switchTo().frame()方法把当前定位的主体切换了frame里。怎么理解这句话呢？我们可以从frame的实质去理解。frame中实际上是嵌入了另一个页面，而webdriver每次只能在一个页面识别，因此才需要用switch_to.frame方法去获取frame中嵌入的页面，对那个页面里的元素进行定位。
+
+switchTo.defaultContent方法的话则是从frame中嵌入的页面里跳出，跳回到最外面的原始页面中。
 
 如果页面上只有1个frame的话那么这一切都是很好理解的，但如果页面上有多个frame，情况有稍微有点复杂了。
 
@@ -2156,37 +2624,58 @@ switch_to.default_content方法的话则是从frame中嵌入的页面里跳出�
   </html>
 ```
 
-### frame.rb
+### frame.java
 ```
-  #encoding: utf-8
-  require 'selenium-webdriver'
+	import java.io.File;
+	import java.util.List;
+	import org.openqa.selenium.Alert;
+	import org.openqa.selenium.By;
+	import org.openqa.selenium.JavascriptExecutor;
+	import org.openqa.selenium.Keys;
+	import org.openqa.selenium.WebDriver;
+	import org.openqa.selenium.WebElement;
+	import org.openqa.selenium.chrome.ChromeDriver;
+	import org.openqa.selenium.support.ui.ExpectedCondition;
+	import org.openqa.selenium.support.ui.WebDriverWait;
 
-  dr = Selenium::WebDriver.for :chrome
-  file_path = 'file:///' + File.expand_path(File.join('.', 'frame.html'))
-  dr.get file_path
 
-  # 先到f1再到f2
-  dr.switch_to.frame('f1')
-  dr.switch_to.frame('f2')
-  # 往f2中的百度关键字文本框中输入内容
-  dr.find_element(id: 'kw').send_keys 'watir-webdriver'
+	public class Frame {
 
-  # 直接跳出所有frame
-  dr.switch_to.default_content
+		public static void main(String[] args) throws InterruptedException {
+			WebDriver dr = new ChromeDriver();
+			
+			File file = new File("src/frame.html");
+			String filePath = "file:///" + file.getAbsolutePath();
+			System.out.printf("now accesss %s \n", filePath);
+			
+			dr.get(filePath);
+			Thread.sleep(1000);
+			
+	//		 先到f1再到f2
+			dr.switchTo().frame("f1");
+			dr.switchTo().frame("f2");
+	//		往f2中的百度关键字文本框中输入内容
+			dr.findElement(By.id("kw")).sendKeys("watir-webdriver");
+			Thread.sleep(1000);
+			
+	//		直接跳出所有frame
+			dr.switchTo().defaultContent();
 
-  # 再到f1
-  dr.switch_to.frame('f1')
-  dr.find_element(link_text: 'click').click
+	//		再到f1
+			dr.switchTo().frame("f1");
+			dr.findElement(By.linkText("click")).click();
+			
+			Thread.sleep(1000);
+			System.out.println("browser will be close");
+			dr.quit();	
+		}
 
-  sleep(2)
-  dr.quit()
+	}
 
 ```
 讨论
 ----
 假设页面上有A、B两个frame，其中B在A内，那么定位B中的内容则需要先到A，然后再到B。如果是定位A中的内容，那么直接switch_to.frame('A')就可以了;
-
-switch_to.frame的参数问题。官方说name是可以的，但是经过实验发现id也可以。所以只要frame中id和name，那么处理起来是比较容易的。如果frame没有这两个属性的话，你可以直接加上，这对整个页面影响不大;
 
 页面中使用frame会影响页面渲染速度，如果你遇到页面中有多个frame的情况，你完全可以提出1个页面前端性能的缺陷;
 
@@ -2221,26 +2710,28 @@ action
 
 下面列举一下Action类的一些主要方法
 
-* key_down。模拟按键按下
-* key_up。模拟按键弹起
+* keyDown。模拟按键按下
+* keyUp。模拟按键弹起
 * click
-* send_keys
-* double_click。鼠标左键双击
-* click_and_hold。鼠标左键点击住不放
+* sendKeys
+* doubleClick。鼠标左键双击
+* clickAndHold。鼠标左键点击住不放
 * release。鼠标左键弹起，可以与click_and_hold配合使用
-* move_to。把鼠标移动到元素的中心点
-* content_click。鼠标右键点击
-* drag_and_drop。拖拽
+* moveToElement。把鼠标移动到元素的中心点
+* contextClick。鼠标右键点击
+* dragAndDrop。拖拽
 
 代码
 ----
 ```
-driver.action.key_down(:shift).
+Actions action = new Actions(driver)
+action.keyDown(Keys.SHIFT).
               click(element).
               click(second_element).
-              key_up(:shift).
-              drag_and_drop(element, third_element).
-              perform
+              keyUp(Keys.SHIFT).
+              dragAndDrop(element, third_element).
+							build().
+              perform()
 ```
 
 讨论
@@ -2272,7 +2763,7 @@ driver.action.key_down(:shift).
 
 场景
 ----
-上传文件的方法是找到上传文件的对象，通常是<input type="file" />的对象。然后直接往这个对象send_keys，传入需要上传文件的正确路径。绝对路径和相对路径都可以，但是上传的文件必须存在，否则会报错。
+上传文件的方法是找到上传文件的对象，通常是<input type="file" />的对象。然后直接往这个对象sendKeys，传入需要上传文件的正确路径。绝对路径和相对路径都可以，但是上传的文件必须存在，否则会报错。
 
 代码
 ----
@@ -2301,20 +2792,39 @@ driver.action.key_down(:shift).
   </html>
 ```
 
-### upload_file.rb
+### upload_file.java
 ```
-  #encoding: utf-8
-  require 'selenium-webdriver'
+	import java.io.File;
+	import java.util.List;
 
-  dr = Selenium::WebDriver.for :chrome
-  file_path = 'file:///' + File.expand_path(File.join('.', 'upload_file.html'))
-  dr.get file_path
+	import org.openqa.selenium.Alert;
+	import org.openqa.selenium.By;
+	import org.openqa.selenium.Keys;
+	import org.openqa.selenium.WebDriver;
+	import org.openqa.selenium.WebElement;
+	import org.openqa.selenium.chrome.ChromeDriver;
 
-  dr.find_element(name: 'file').send_keys('./upload_file.md')
 
-  sleep(2)
-  dr.quit()
+	public class Upload {
 
+		public static void main(String[] args) throws InterruptedException {
+			WebDriver dr = new ChromeDriver();
+			
+			File file = new File("src/upload_file.html");
+			String filePath = "file:///" + file.getAbsolutePath();
+			System.out.printf("now accesss %s \n", filePath);
+			
+			dr.get(filePath);
+			Thread.sleep(1000);
+			
+			dr.findElement(By.cssSelector("input[type=file]")).sendKeys("src/navs.html");
+			
+			Thread.sleep(1000);
+			System.out.println("browser will be close");
+			dr.quit();	
+		}
+
+	}
 ```
 
 
@@ -2344,30 +2854,26 @@ driver.action.key_down(:shift).
 ----
 webdriver允许我们设置默认的文件下载路径。也就是说文件会自动下载并且存在设置的那个目录中。
 
-下面会给出chrome和firefox浏览器的具体设置方法。
+下面会给出firefox浏览器的具体设置方法。
 
 代码
 -----
 
 ```
-  # for chrome
-  profile = Selenium::WebDriver::Chrome::Profile.new
-  # 设置自动下载
-  profile['download.prompt_for_download'] = false
-  # 设置具体路径
-  profile['download.default_directory'] = "/path/to/dir"
-
   driver = Selenium::WebDriver.for :chrome, :profile => profile
 
   # for firefox 
-  profile = Selenium::WebDriver::Firefox::Profile.new
+  FirefoxProfile firefoxProfile = new FirefoxProfile();
 
-  profile['browser.download.dir'] = "/tmp/webdriver-downloads"
-  profile['browser.download.folderList'] = 2
-  # 设置哪些文件自动下载，这里设置的是pdf文件
-  profile['browser.helperApps.neverAsk.saveToDisk'] = "application/pdf"
+  firefoxProfile.setPreference("browser.download.folderList",2);
+  firefoxProfile.setPreference("browser.download.manager.showWhenStarting",false);
+  firefoxProfile.setPreference("browser.download.dir","c:\\downloads");
+  firefoxProfile.setPreference("browser.helperApps.neverAsk.saveToDisk","text/csv");
 
-  driver = Selenium::WebDriver.for :firefox, :profile => profile
+  WebDriver driver = new FirefoxDriver(firefoxProfile);
+  //new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capability);
+
+  driver.navigate().to("http://www.myfile.com/hey.csv");
 
 ```
 
@@ -2398,143 +2904,25 @@ webdriver允许我们设置默认的文件下载路径。也就是说文件会�
 ----
 webdriver中可以设置很多的超时时间
 
-* implicit_wait。识别对象时的超时时间。过了这个时间如果对象还没找到的话就会抛出NoSuchElement异常
-* script_timeout。异步脚本的超时时间。webdriver可以异步执行脚本，这个是设置异步执行脚本脚本返回结果的超时时间
-* page_load。页面加载时的超时时间。因为webdriver会等页面加载完毕在进行后面的操作，所以如果页面在这个超时时间内没有加载完成，那么webdriver就会抛出异常
+* implicitlyWait。识别对象时的超时时间。过了这个时间如果对象还没找到的话就会抛出NoSuchElement异常
+* setScriptTimeout。异步脚本的超时时间。webdriver可以异步执行脚本，这个是设置异步执行脚本脚本返回结果的超时时间
+* pageLoadTimeout。页面加载时的超时时间。因为webdriver会等页面加载完毕在进行后面的操作，所以如果页面在这个超时时间内没有加载完成，那么webdriver就会抛出异常
 
 代码
 ----
 
 ```
-  driver = Selenium::WebDriver.for :chrome
   # 定位对象时给3s的时间
   # 如果3s内还定位不到则抛出异常
-  driver.manage.timeouts.implicit_wait = 3 # seconds
+  driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 
   # 页面加载超时时间设置为5s
-  driver.manage.page_load = 5 #seconds
+  dr.manage().timeouts().pageLoadTimeout(5, TimeUnit.SECONDS);
 
   # 异步脚本的超时时间设置成3s 
-  driver.manage.script_timeout = 3 #seconds
+  dr.manage().timeouts().setScriptTimeout(3, TimeUnit.SECONDS);
 
 ```
-
-讨论
-----
-由于webdriver是通过给driver发送http请求来进行每步操作的，因此就可以设置http请求的超时时间。默认ruby binding的http client超时时间是60s，你可以通过下面的代码来改变这一设置。
-
-```
-  client = Selenium::WebDriver::Remote::Http::Default.new
-  client.timeout = 120 # seconds
-  driver = Selenium::WebDriver.for(:chrome, :http_client => client)
-```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Remote Webdriver
-================
-
-场景
-----
-简单来说，我们可以把remote webdriver理解成在远程机器上运行webdriver脚本。
-
-想像一下最简单的一个应用场景：你和你的同事两人一起开发一段webdriver脚本，然后你们需要在一个公共的环境去运行这段脚本。为什么要在公共的环境运行？那是因为每个人的开发机器是有差异的，但是如果用同一台测试机的话，那么环境差异的因素就可以基本排除。我们应该经常听到开发说这样的话:"这个bug在我的环境上是好的啊！"。因为运行环境不同而造成的bug比比皆是，因此我们需要一个统一的运行环境来消除差异。
-
-在这样的应用场景下，我们就需要使用remote webdriver，我们在本地开发脚本，然后调用remote webdriver，在测试机器上执行我们的测试。
-
-安装
-----
-Remote Webdriver的安装很简单。
-
-首先下载[selenium-server-standalone-LAST-VERSION.jar](http://code.google.com/p/selenium/downloads/list)。
-
-然后运行```java -jar selenium-server-standalone.jar```命令。如果没有错误出现的话，这台机器已经被配置成远程机器了，以后webdriver就会在这台机器上启动浏览器，执行脚本。
-
-启动driver
------------
-
-下面的代码可以启动远程机器上的driver，默认情况下这会打开localhost也就是本机上的firefox浏览器
-
-```
-	driver = Selenium::WebDriver.for(:remote)
-```
-
-如果你的remote webdriver不在本地运行，而且你又想指定除firefox以外的浏览器，那么使用下面的代码
-```
-	driver = Selenium::WebDriver.for(:remote, :url => "http://myserver:4444/wd/hub", :desired_capabilities => :chrome)
-```
-
-通常情况下myserver可以是192.168.x.x之类的ip地址。
-
-另外还可以通过配置```Selenium::WebDriver::Remote::Capabilities```来实现更加定制化的浏览器配置，这个超出本文范围，不做描述。
-
-使用watir-webdriver启动driver
------------------------------
-
-可以使用下面的代码让watir-webdriver也使用remote webdriver模式
-```
-	browser = Watir::Browser.new(:remote, {desired_capabilities: :chrome, url: "http://myserver:4444/wd/hub"})
-```
-
-
-java版本
---------
-```
-	// We could use any driver for our tests...
-	DesiredCapabilities capabilities = new DesiredCapabilities();
-
-	// ... but only if it supports javascript
-	capabilities.setJavascriptEnabled(true);
-
-	// Get a handle to the driver. This will throw an exception
-	// if a matching driver cannot be located
-	WebDriver driver = new RemoteWebDriver(capabilities);
-
-	// Query the driver to find out more information
-	Capabilities actualCapabilities = ((RemoteWebDriver) driver).getCapabilities();
-
-	// And now use it
-	driver.get("http://www.google.com");
-```
-
-注意，java版本的代码我没有时间去调试，这里只是把wiki上的代码放出来而已。另外remote server在发生错误时会自动截图，下面是获得截图的代码
-```
-	public String extractScreenShot(WebDriverException e) {
-		Throwable cause = e.getCause();
-		if (cause instanceof ScreenshotException) {
-			return ((ScreenshotException) cause).getBase64EncodedScreenshot();
-		}
-		return null;
-	}
-```	
-
-python版本
-----------
-```
-	c = webdriver.DesiredCapabilities.CHROME
-	driver = webdriver.Remote(command_executor='http://127.0.0.1:4444/wd/hub', desired_capabilities=c)
-```
-
-注意，python binding的wiki中使用的启动remote webdriver的代码跟我上面给出的不太相同，可能是因为我的selenium版本较低(30)，最新版本的同学可以试试[wiki](http://code.google.com/p/selenium/wiki/PythonBindings)上的代码。
-
 
 
 
@@ -2568,35 +2956,49 @@ webdriver可以读取并添加cookie。有时候我们需要验证浏览器中�
 
 webdriver读写cookie的接口有以下一些
 
-* add_cookie。添加cookie，必须有name, value这2个key
-* delete_all_cookies。删除所有cookie
-* all_cookies。返回所有的cookie
-* delete_cookie(name)。删除name这个cookie
-* cookie_named。返回特定name的cookie值
+* addCookie(Cookie cookie)。添加cookie，参数是Cookie对象
+* deleteAllCookies。删除所有cookie
+* getCookies。返回所有的cookie
+* deleteCookieNamed(String name)。删除name这个cookie
+* getCookieNamed(String name)。返回特定name的cookie值
 
 
 代码
 ----
 下面的代码演示了如何自动登陆百度。其中敏感信息我使用了xxxx来代替。
-### cookie.rb
+### cookie.java
+
 ```
-  #encoding: utf-8
-  require 'selenium-webdriver'
+  import org.openqa.selenium.Cookie;
+  import org.openqa.selenium.WebDriver;
+  import org.openqa.selenium.chrome.ChromeDriver;
 
-  dr = Selenium::WebDriver.for :chrome
-  url = 'http://www.baidu.com'
-  dr.get url
 
-  p dr.manage.all_cookies
-  dr.manage.delete_all_cookies
-  dr.manage.add_cookie(name: 'BAIDUID', value: 'xxxxxx')
-  dr.manage.add_cookie(name: 'BDUSS', value: 'xxxxxx')
+  public class CookieExample {
 
-  # 重新访问该页面就可以发现已经登陆了
-  # 当然也可以刷新该页面
-  dr.get url
+    public static void main(String[] args) throws InterruptedException {
+        WebDriver dr = new ChromeDriver();
+    
+        String url = "http://www.baidu.com";
+        System.out.printf("now accesss %s \n", url);
+        
+        dr.get(url);
+        Thread.sleep(2000);
+        
+        System.out.println(dr.manage().getCookies());
+        
+        dr.manage().deleteAllCookies();
+        
+        Cookie c1 = new Cookie("BAIDUID", "xxxxxxxxxx");
+        Cookie c2 = new Cookie("BDUSS", "xxxxxxxxxx");
+        dr.manage().addCookie(c1);
+        dr.manage().addCookie(c2);
+        
+        System.out.println("browser will be close");
+        
+        dr.quit();quit}
 
-  sleep(3)
-  dr.quit()
+  }
+
 ```
 
