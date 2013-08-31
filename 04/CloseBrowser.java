@@ -2,14 +2,13 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 
-public class CloseBrowser {
+public class ResizeBrowser {
 
 	public static void main(String[] args) {
 		WebDriver dr = new ChromeDriver();
-		System.out.println("browser will be closed");
-		
-		dr.quit();	
-		System.out.println("browser is closed");
+		dr.manage().window().setSize(new Dimension(240, 320));
+		dr.get("http://www.3g.qq.com/");
+		dr.quit();
 	}
 
 }
