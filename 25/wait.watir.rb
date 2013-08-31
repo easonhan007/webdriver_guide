@@ -9,9 +9,8 @@ b.goto file_path
 # 点击按钮
 b.button(:id, 'btn').when_present.click()
 
-wait = Selenium::WebDriver::Wait.new()
 b.span(:class,'label').wait_until_present
 
 sleep(2)
-b.quit()
+b.close()
 
