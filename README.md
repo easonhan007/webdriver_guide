@@ -81,3 +81,24 @@ webdriver实用指南java版本
 * [超时设置](/30/timeout.java.md)
 * [Remote Webdriver](/31/remote.md)
 * [cookie与自动登陆](/32/cookie.java.md)
+
+-----------------------------------------------------------
+
+webdriver实用指南python版本
+=========================
+
+不用担心，html版本的《webdriver实用指南python版本》是 __永久免费__ 的。
+
+目录如下
+========
+
+* [启动浏览器](/01/start_browser.py.md)
+* [关闭浏览器](/02/close_browser.py.md)
+* [浏览器最大化](/03/maximize_browser.py.md)
+* [设置浏览器大小](/04/resize_browser.py.md)
+* [访问链接](/05/get.py.md)
+* [打印当前页面的title及url](06/title_and_url.py.md)
+* [前进和后退](07/forword_and_back.py.md)
+* [简单的对象定位](/08/simple_locate.py.md)
+* [定位一组对象](/09/find_elements.py.md)
+* [层级定位](/10/level_locate.py.md)
