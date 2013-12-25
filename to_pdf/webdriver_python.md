@@ -1,4 +1,4 @@
-# 乙醇的webdriver实用指南java版本
+# 乙醇的webdriver实用指南Python版本
 
 ### 本书由乙醇所著，未经授权一律不得转载
 
@@ -10,13 +10,15 @@
 * 244735278
 
 ### 微博
-http://weibo.com/autootest
+* http://weibo.com/autootest
 
 ### 微信
-在微信公众号中搜索__乙醇__或__besttest__
+* 在微信公众号中搜索__乙醇__或__besttest__
 
 ### besttest
-www.besttest.cn
+* www.besttest.cn
+
+
 ------------------------------------------------------------------------
 
 
