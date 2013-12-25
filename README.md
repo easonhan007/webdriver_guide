@@ -1,125 +1,126 @@
-webdriverÊµÓÃÖ¸ÄÏruby°æ±¾
+webdriverå®ç”¨æŒ‡å—rubyç‰ˆæœ¬
 =========================
 
-²»ÓÃµ£ĞÄ£¬html°æ±¾µÄ¡¶webdriverÊµÓÃÖ¸ÄÏruby°æ±¾¡·ÊÇ __ÓÀ¾ÃÃâ·Ñ__ µÄ¡£
-Èç¹ûÄã¾õµÃÕâ±¾Êé»¹¿ÉÒÔ£¬µã»÷[ÕâÀï](http://item.taobao.com/item.htm?id=21229123352)¿ÉÒÔ¹ºÂò[pdf°æ±¾](http://item.taobao.com/item.htm?id=21229123352)(5Ôª)£¬±¾ÊéµÄ[ÅäÌ×ÊÓÆµ½Ì³Ìruby°æ±¾](http://item.taobao.com/item.htm?id=26171596869)Ò²ÒÑ¾­ÉÏ¼Ü¡£
+ä¸ç”¨æ‹…å¿ƒï¼Œhtmlç‰ˆæœ¬çš„ã€Šwebdriverå®ç”¨æŒ‡å—rubyç‰ˆæœ¬ã€‹æ˜¯ __æ°¸ä¹…å…è´¹__ çš„ã€‚
+å¦‚æœä½ è§‰å¾—è¿™æœ¬ä¹¦è¿˜å¯ä»¥ï¼Œç‚¹å‡»[è¿™é‡Œ](http://item.taobao.com/item.htm?id=21229123352)å¯ä»¥è´­ä¹°[pdfç‰ˆæœ¬](http://item.taobao.com/item.htm?id=21229123352)(5å…ƒ)ï¼Œæœ¬ä¹¦çš„[é…å¥—è§†é¢‘æ•™ç¨‹rubyç‰ˆæœ¬](http://item.taobao.com/item.htm?id=26171596869)ä¹Ÿå·²ç»ä¸Šæ¶ã€‚
 
-Ä¿Â¼ÈçÏÂ
+ç›®å½•å¦‚ä¸‹
 ========
 
-* [Æô¶¯ä¯ÀÀÆ÷](/01/start_browser.md)
-* [¹Ø±Õä¯ÀÀÆ÷](/02/close_browser.md)
-* [ä¯ÀÀÆ÷×î´ó»¯](/03/maximize_browser.md)
-* [ÉèÖÃä¯ÀÀÆ÷´óĞ¡](/04/resize_browser.md)
-* [·ÃÎÊÁ´½Ó](/05/get.md)
-* [´òÓ¡µ±Ç°Ò³ÃæµÄtitle¼°url](06/title_and_url.md)
-* [Ç°½øºÍºóÍË](07/forword_and_back.md)
-* [¼òµ¥µÄ¶ÔÏó¶¨Î»](/08/simple_locate.md)
-* [¶¨Î»Ò»×é¶ÔÏó](/09/find_elements.md)
-* [²ã¼¶¶¨Î»](/10/level_locate.md)
-* [²Ù×÷²âÊÔ¶ÔÏó](/11/operate_element.md)
-* [send keysÄ£Äâ°´¼üÊäÈë](/12/send_keys.md)
-* [´¦Àíbutton group](/13/button_group.md)
-* [´¦Àíbutton dropdown](/14/button_dropdown.md)
-* [´¦Àínavs](/15/navs.md)
-* [´¦ÀíÃæ°üĞ¼](/16/breadcrumb.md)
-* [´¦Àí¶Ô»°¿òĞÂÊ½µÄÄ£Ì¬´°¿Ú](/18/modal.md)
-* [»ñÈ¡²âÊÔ¶ÔÏóµÄÊôĞÔ¼°ÄÚÈİ](/19/attribute.md)
-* [»ñÈ¡²âÊÔ¶ÔÏóµÄcssÊôĞÔ](/20/css.md)
-* [»ñÈ¡²âÊÔ¶ÔÏóµÄ×´Ì¬](/21/status.md)
-* [´¦Àí±íµ¥ÔªËØ](/22/form.md)
-* [Ö´ĞĞjs](/23/js.md)
-* [´¦Àíalert/confirm/prompt](/24/alert.md)
+* [å¯åŠ¨æµè§ˆå™¨](/01/start_browser.md)
+* [å…³é—­æµè§ˆå™¨](/02/close_browser.md)
+* [æµè§ˆå™¨æœ€å¤§åŒ–](/03/maximize_browser.md)
+* [è®¾ç½®æµè§ˆå™¨å¤§å°](/04/resize_browser.md)
+* [è®¿é—®é“¾æ¥](/05/get.md)
+* [æ‰“å°å½“å‰é¡µé¢çš„titleåŠurl](06/title_and_url.md)
+* [å‰è¿›å’Œåé€€](07/forword_and_back.md)
+* [ç®€å•çš„å¯¹è±¡å®šä½](/08/simple_locate.md)
+* [å®šä½ä¸€ç»„å¯¹è±¡](/09/find_elements.md)
+* [å±‚çº§å®šä½](/10/level_locate.md)
+* [æ“ä½œæµ‹è¯•å¯¹è±¡](/11/operate_element.md)
+* [send keysæ¨¡æ‹ŸæŒ‰é”®è¾“å…¥](/12/send_keys.md)
+* [å¤„ç†button group](/13/button_group.md)
+* [å¤„ç†button dropdown](/14/button_dropdown.md)
+* [å¤„ç†navs](/15/navs.md)
+* [å¤„ç†é¢åŒ…å±‘](/16/breadcrumb.md)
+* [å¤„ç†å¯¹è¯æ¡†æ–°å¼çš„æ¨¡æ€çª—å£](/18/modal.md)
+* [è·å–æµ‹è¯•å¯¹è±¡çš„å±æ€§åŠå†…å®¹](/19/attribute.md)
+* [è·å–æµ‹è¯•å¯¹è±¡çš„csså±æ€§](/20/css.md)
+* [è·å–æµ‹è¯•å¯¹è±¡çš„çŠ¶æ€](/21/status.md)
+* [å¤„ç†è¡¨å•å…ƒç´ ](/22/form.md)
+* [æ‰§è¡Œjs](/23/js.md)
+* [å¤„ç†alert/confirm/prompt](/24/alert.md)
 * [wait](/25/wait.md)
-* [¶¨Î»frameÖĞµÄÔªËØ](/26/frame.md)
+* [å®šä½frameä¸­çš„å…ƒç´ ](/26/frame.md)
 * [action](/27/action.md)
-* [ÉÏ´«ÎÄ¼ş](/28/upload_file.md)
-* [ÏÂÔØ](/29/download.md)
-* [³¬Ê±ÉèÖÃ](/30/timeout.md)
+* [ä¸Šä¼ æ–‡ä»¶](/28/upload_file.md)
+* [ä¸‹è½½](/29/download.md)
+* [è¶…æ—¶è®¾ç½®](/30/timeout.md)
 * [Remote Webdriver](/31/remote.md)
-* [cookieÓë×Ô¶¯µÇÂ½](/32/cookie.md)
+* [cookieä¸è‡ªåŠ¨ç™»é™†](/32/cookie.md)
 
 -----------------------------------------------------------
 
-webdriverÊµÓÃÖ¸ÄÏjava°æ±¾
+webdriverå®ç”¨æŒ‡å—javaç‰ˆæœ¬
 =========================
 
-²»ÓÃµ£ĞÄ£¬html°æ±¾µÄ¡¶webdriverÊµÓÃÖ¸ÄÏjava°æ±¾¡·ÊÇ __ÓÀ¾ÃÃâ·Ñ__ µÄ¡£
-Èç¹ûÄãÏ²»¶±¾Êé£¬¿ÉÒÔ¹ºÂò[pdf°æ±¾](http://item.taobao.com/item.htm?id=21296527347),15Ôª¡£
+ä¸ç”¨æ‹…å¿ƒï¼Œhtmlç‰ˆæœ¬çš„ã€Šwebdriverå®ç”¨æŒ‡å—javaç‰ˆæœ¬ã€‹æ˜¯ __æ°¸ä¹…å…è´¹__ çš„ã€‚
+å¦‚æœä½ å–œæ¬¢æœ¬ä¹¦ï¼Œå¯ä»¥è´­ä¹°[pdfç‰ˆæœ¬](http://item.taobao.com/item.htm?id=21296527347),15å…ƒã€‚
 
-Ä¿Â¼ÈçÏÂ
+ç›®å½•å¦‚ä¸‹
 ========
 
-* [Æô¶¯ä¯ÀÀÆ÷](/01/start_browser.java.md)
-* [¹Ø±Õä¯ÀÀÆ÷](/02/close_browser.java.md)
-* [ä¯ÀÀÆ÷×î´ó»¯](/03/maximize_browser.java.md)
-* [ÉèÖÃä¯ÀÀÆ÷´óĞ¡](/04/resize_browser.java.md)
-* [·ÃÎÊÁ´½Ó](/05/get.java.md)
-* [´òÓ¡µ±Ç°Ò³ÃæµÄtitle¼°url](06/title_and_url.java.md)
-* [Ç°½øºÍºóÍË](07/forword_and_back.java.md)
-* [¼òµ¥µÄ¶ÔÏó¶¨Î»](/08/simple_locate.java.md)
-* [¶¨Î»Ò»×é¶ÔÏó](/09/find_elements.java.md)
-* [²ã¼¶¶¨Î»](/10/level_locate.java.md)
-* [²Ù×÷²âÊÔ¶ÔÏó](/11/operate_element.java.md)
-* [send keysÄ£Äâ°´¼üÊäÈë](/12/send_keys.java.md)
-* [´¦Àíbutton group](/13/button_group.java.md)
-* [´¦Àíbutton dropdown](/14/button_dropdown.java.md)
-* [´¦Àínavs](/15/navs.java.md)
-* [´¦ÀíÃæ°üĞ¼](/16/breadcrumb.java.md)
-* [´¦Àí¶Ô»°¿òĞÂÊ½µÄÄ£Ì¬´°¿Ú](/18/modal.java.md)
-* [»ñÈ¡²âÊÔ¶ÔÏóµÄÊôĞÔ¼°ÄÚÈİ](/19/attribute.java.md)
-* [»ñÈ¡²âÊÔ¶ÔÏóµÄcssÊôĞÔ](/20/css.java.md)
-* [»ñÈ¡²âÊÔ¶ÔÏóµÄ×´Ì¬](/21/status.java.md)
-* [´¦Àí±íµ¥ÔªËØ](/22/form.java.md)
-* [Ö´ĞĞjs](/23/js.java.md)
-* [´¦Àíalert/confirm/prompt](/24/alert.java.md)
+* [å¯åŠ¨æµè§ˆå™¨](/01/start_browser.java.md)
+* [å…³é—­æµè§ˆå™¨](/02/close_browser.java.md)
+* [æµè§ˆå™¨æœ€å¤§åŒ–](/03/maximize_browser.java.md)
+* [è®¾ç½®æµè§ˆå™¨å¤§å°](/04/resize_browser.java.md)
+* [è®¿é—®é“¾æ¥](/05/get.java.md)
+* [æ‰“å°å½“å‰é¡µé¢çš„titleåŠurl](06/title_and_url.java.md)
+* [å‰è¿›å’Œåé€€](07/forword_and_back.java.md)
+* [ç®€å•çš„å¯¹è±¡å®šä½](/08/simple_locate.java.md)
+* [å®šä½ä¸€ç»„å¯¹è±¡](/09/find_elements.java.md)
+* [å±‚çº§å®šä½](/10/level_locate.java.md)
+* [æ“ä½œæµ‹è¯•å¯¹è±¡](/11/operate_element.java.md)
+* [send keysæ¨¡æ‹ŸæŒ‰é”®è¾“å…¥](/12/send_keys.java.md)
+* [å¤„ç†button group](/13/button_group.java.md)
+* [å¤„ç†button dropdown](/14/button_dropdown.java.md)
+* [å¤„ç†navs](/15/navs.java.md)
+* [å¤„ç†é¢åŒ…å±‘](/16/breadcrumb.java.md)
+* [å¤„ç†å¯¹è¯æ¡†æ–°å¼çš„æ¨¡æ€çª—å£](/18/modal.java.md)
+* [è·å–æµ‹è¯•å¯¹è±¡çš„å±æ€§åŠå†…å®¹](/19/attribute.java.md)
+* [è·å–æµ‹è¯•å¯¹è±¡çš„csså±æ€§](/20/css.java.md)
+* [è·å–æµ‹è¯•å¯¹è±¡çš„çŠ¶æ€](/21/status.java.md)
+* [å¤„ç†è¡¨å•å…ƒç´ ](/22/form.java.md)
+* [æ‰§è¡Œjs](/23/js.java.md)
+* [å¤„ç†alert/confirm/prompt](/24/alert.java.md)
 * [wait](/25/wait.java.md)
-* [¶¨Î»frameÖĞµÄÔªËØ](/26/frame.java.md)
+* [å®šä½frameä¸­çš„å…ƒç´ ](/26/frame.java.md)
 * [action](/27/action.java.md)
-* [ÉÏ´«ÎÄ¼ş](/28/upload_file.java.md)
-* [ÏÂÔØ](/29/download.java.md)
-* [³¬Ê±ÉèÖÃ](/30/timeout.java.md)
+* [ä¸Šä¼ æ–‡ä»¶](/28/upload_file.java.md)
+* [ä¸‹è½½](/29/download.java.md)
+* [è¶…æ—¶è®¾ç½®](/30/timeout.java.md)
 * [Remote Webdriver](/31/remote.md)
-* [cookieÓë×Ô¶¯µÇÂ½](/32/cookie.java.md)
+* [cookieä¸è‡ªåŠ¨ç™»é™†](/32/cookie.java.md)
 
 -----------------------------------------------------------
 
-webdriverÊµÓÃÖ¸ÄÏpython°æ±¾
+webdriverå®ç”¨æŒ‡å—pythonç‰ˆæœ¬
 =========================
 
-²»ÓÃµ£ĞÄ£¬html°æ±¾µÄ¡¶webdriverÊµÓÃÖ¸ÄÏpython°æ±¾¡·ÊÇ __ÓÀ¾ÃÃâ·Ñ__ µÄ¡£
+ä¸ç”¨æ‹…å¿ƒï¼Œhtmlç‰ˆæœ¬çš„ã€Šwebdriverå®ç”¨æŒ‡å—pythonç‰ˆæœ¬ã€‹æ˜¯ __æ°¸ä¹…å…è´¹__ çš„ã€‚
 
-Ä¿Â¼ÈçÏÂ
+ç›®å½•å¦‚ä¸‹
 ========
 
-* [Æô¶¯ä¯ÀÀÆ÷](/01/start_browser.py.md)
-* [¹Ø±Õä¯ÀÀÆ÷](/02/close_browser.py.md)
-* [ä¯ÀÀÆ÷×î´ó»¯](/03/maximize_browser.py.md)
-* [ÉèÖÃä¯ÀÀÆ÷´óĞ¡](/04/resize_browser.py.md)
-* [·ÃÎÊÁ´½Ó](/05/get.py.md)
-* [´òÓ¡µ±Ç°Ò³ÃæµÄtitle¼°url](06/title_and_url.py.md)
-* [Ç°½øºÍºóÍË](07/forword_and_back.py.md)
-* [¼òµ¥µÄ¶ÔÏó¶¨Î»](/08/simple_locate.py.md)
-* [¶¨Î»Ò»×é¶ÔÏó](/09/find_elements.py.md)
-* [²ã¼¶¶¨Î»](/10/level_locate.py.md)
-* [²Ù×÷²âÊÔ¶ÔÏó](/11/operate_element.py.md)
-* [send keysÄ£Äâ°´¼üÊäÈë](/12/send_keys.py.md)
-* [´¦Àíbutton group](/13/button_group.py.md)
-* [´¦Àíbutton dropdown](/14/button_dropdown.py.md)
-* [´¦Àínavs](/15/navs.py.md)
-* [´¦ÀíÃæ°üĞ¼](/16/breadcrumb.py.md)
-* [´¦Àí¶Ô»°¿òĞÂÊ½µÄÄ£Ì¬´°¿Ú](/18/modal.py.md)
-* [»ñÈ¡²âÊÔ¶ÔÏóµÄÊôĞÔ¼°ÄÚÈİ](/19/attribute.py.md)
-* [»ñÈ¡²âÊÔ¶ÔÏóµÄcssÊôĞÔ](/20/css.py.md)
-* [»ñÈ¡²âÊÔ¶ÔÏóµÄ×´Ì¬](/21/status.py.md)
-* [´¦Àí±íµ¥ÔªËØ](/22/form.py.md)
-* [Ö´ĞĞjs](/23/js.py.md)
-* [´¦Àíalert/confirm/prompt](/24/alert.py.md)
+* [å®‰è£…å¼€å‘ç¯å¢ƒ](/00/init.py.md)
+* [å¯åŠ¨æµè§ˆå™¨](/01/start_browser.py.md)
+* [å…³é—­æµè§ˆå™¨](/02/close_browser.py.md)
+* [æµè§ˆå™¨æœ€å¤§åŒ–](/03/maximize_browser.py.md)
+* [è®¾ç½®æµè§ˆå™¨å¤§å°](/04/resize_browser.py.md)
+* [è®¿é—®é“¾æ¥](/05/get.py.md)
+* [æ‰“å°å½“å‰é¡µé¢çš„titleåŠurl](06/title_and_url.py.md)
+* [å‰è¿›å’Œåé€€](07/forword_and_back.py.md)
+* [ç®€å•çš„å¯¹è±¡å®šä½](/08/simple_locate.py.md)
+* [å®šä½ä¸€ç»„å¯¹è±¡](/09/find_elements.py.md)
+* [å±‚çº§å®šä½](/10/level_locate.py.md)
+* [æ“ä½œæµ‹è¯•å¯¹è±¡](/11/operate_element.py.md)
+* [send keysæ¨¡æ‹ŸæŒ‰é”®è¾“å…¥](/12/send_keys.py.md)
+* [å¤„ç†button group](/13/button_group.py.md)
+* [å¤„ç†button dropdown](/14/button_dropdown.py.md)
+* [å¤„ç†navs](/15/navs.py.md)
+* [å¤„ç†é¢åŒ…å±‘](/16/breadcrumb.py.md)
+* [å¤„ç†å¯¹è¯æ¡†æ–°å¼çš„æ¨¡æ€çª—å£](/18/modal.py.md)
+* [è·å–æµ‹è¯•å¯¹è±¡çš„å±æ€§åŠå†…å®¹](/19/attribute.py.md)
+* [è·å–æµ‹è¯•å¯¹è±¡çš„csså±æ€§](/20/css.py.md)
+* [è·å–æµ‹è¯•å¯¹è±¡çš„çŠ¶æ€](/21/status.py.md)
+* [å¤„ç†è¡¨å•å…ƒç´ ](/22/form.py.md)
+* [æ‰§è¡Œjs](/23/js.py.md)
+* [å¤„ç†alert/confirm/prompt](/24/alert.py.md)
 * [wait](/25/wait.py.md)
-* [¶¨Î»frameÖĞµÄÔªËØ](/26/frame.py.md)
+* [å®šä½frameä¸­çš„å…ƒç´ ](/26/frame.py.md)
 * [action](/27/action.py.md)
-* [ÉÏ´«ÎÄ¼ş](/28/upload_file.py.md)
-* [ÏÂÔØ](/29/download.py.md)
-* [³¬Ê±ÉèÖÃ](/30/timeout.py.md)
+* [ä¸Šä¼ æ–‡ä»¶](/28/upload_file.py.md)
+* [ä¸‹è½½](/29/download.py.md)
+* [è¶…æ—¶è®¾ç½®](/30/timeout.py.md)
 * [Remote Webdriver](/31/remote.md)
-* [cookieÓë×Ô¶¯µÇÂ½](/32/cookie.py.md)
+* [cookieä¸è‡ªåŠ¨ç™»é™†](/32/cookie.py.md)
