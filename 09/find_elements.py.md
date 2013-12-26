@@ -97,4 +97,4 @@ dr.quit()
 
 讨论
 ----
-checkbox.html必须与find_elments.rb在同一级目录下
+checkbox.html必须与find_elments.py在同一级目录下
