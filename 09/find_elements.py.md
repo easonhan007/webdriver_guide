@@ -57,37 +57,44 @@
 	</html>
 ```
 
-### find_element.rb
-```
-	#encoding: utf-8
-	require 'selenium-webdriver'
+### find_element.py
+```python
+# -*- coding: utf-8 -*-
+from selenium import webdriver
+import time
+import os
 
-	dr = Selenium::WebDriver.for :chrome
-	file_path = 'file:///' + File.expand_path(File.join('.', 'checkbox.html'))
+dr = webdriver.Chrome()
+file_path =  'file:///' + os.path.abspath('checkbox.html')
+dr.get(file_path)
 
-	dr.get file_path
+# 选择所有的checkbox并全部勾上
+checkboxes = dr.find_elements_by_css_selector('input[type=checkbox]')
+for checkbox in checkboxes:
+        checkbox.click()
+time.sleep(1)
+dr.refresh()
+time.sleep(2)
 
-	# 选择所有的checkbox并全部勾上
-	dr.find_elements(:css, 'input[type=checkbox]').each {|c| c.click}
-	dr.navigate.refresh()
-	sleep 1
+# 打印当前页面上有多少个checkbox
+print len(dr.find_elements_by_css_selector('input[type=checkbox]'))
 
-	# 打印当前页面上有多少个checkbox
-	puts dr.find_elements(:css, 'input[type=checkbox]').size
+# 选择页面上所有的input，然后从中过滤出所有的checkbox并勾选之
+inputs = dr.find_elements_by_tag_name('input')
+for input in inputs:
+        if input.get_attribute('type') == 'checkbox':
+                input.click()
 
-	# 选择页面上所有的input，然后从中过滤出所有的checkbox并勾选之
-	dr.find_elements(:tag_name, 'input').each do |input|
-		input.click if input.attribute(:type) == 'checkbox'
-	end 
-	sleep 1
+time.sleep(1)
 
-	# 把页面上最后1个checkbox的勾给去掉
-	dr.find_elements(:css, 'input[type=checkbox]').last.click
+# 把页面上最后1个checkbox的勾给去掉
+dr.find_elements_by_css_selector('input[type=checkbox]').pop().click()
 
-	sleep 2
-	dr.quit
+time.sleep(1)
+
+dr.quit()
 ```
 
 讨论
 ----
-checkbox.html必须与find_elments.rb在同一级目录下
+checkbox.html必须与find_elments.py在同一级目录下

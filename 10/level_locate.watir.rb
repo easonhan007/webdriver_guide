@@ -17,7 +17,14 @@ dr.action.move_to(menu).perform()
 
 
 menu = b.ul(:id, 'dropdown1').when_present.link(:text, 'Another action')
+# b.ul(:id, 'dropdown1').wait_until_present
+# Watir::Wait.until { b.ul(:id, 'dropdown1').present? }
+# b.ul(:id, 'dropdown1').link(:text, 'Another action').flash
 menu.focus
+
+# close menu
+b.link(:text, 'Link1').click
+b.ul(:id, 'dropdown1').link(:text, 'Another action').wait_while_present
 
 sleep 2
 b.close
