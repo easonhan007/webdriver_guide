@@ -54,7 +54,7 @@ import os
 if 'HTTP_PROXY'in os.environ: del os.environ['HTTP_PROXY']
 
 dr = webdriver.Chrome()
-file_path = 'file:///' + os.path.abspath('button_group.html')
+file_path = 'file:///' + os.path.abspath('button_dropdown.html')
 
 dr.get(file_path)
 
