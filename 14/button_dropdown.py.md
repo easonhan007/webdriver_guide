@@ -50,26 +50,34 @@ button dropdown就是把按钮和下拉菜单弄到了一起。处理这种对�
 
 ### button_dropdown.py
 ```
-# -*- coding: utf-8 -*- 
-from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
-from time import sleep
-import os
-if 'HTTP_PROXY'in os.environ: del os.environ['HTTP_PROXY']
+#coding=utf-8
+
+from selenium import  webdriver
+from selenium.webdriver.support.ui import  WebDriverWait
+from time import  sleep
+import  os
+
+if 'HTTP_PROXY' in os.environ: del os.environ['HTTP_PROXY']
 
 dr = webdriver.Chrome()
 file_path = 'file:///' + os.path.abspath('button_dropdown.html')
-
 dr.get(file_path)
 
 sleep(1)
 
-# 定位text是second的按钮
-buttons = dr.find_element_by_class_name('btn-group').find_elements_by_class_name('btn')
-for btn in buttons:
-	if btn.text == 'second': print 'find second button'
+#点击下拉菜单
+dr.find_element_by_link_text('Info').click()
 
-sleep(1)
+#找到dropdown-menu父元素
+WebDriverWait(dr,10).until(lambda the_driver: the_driver.find_element_by_class_name('dropdown-menu').is_displayed())
+
+#找到better than
+menu = dr.find_element_by_class_name('dropdown-menu').find_element_by_link_text('better than')
+
+menu.click()
+
+sleep(3)
+
 dr.quit()
 
 ```
