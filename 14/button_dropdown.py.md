@@ -10,38 +10,42 @@ button dropdown就是把按钮和下拉菜单弄到了一起。处理这种对�
 下面的代码演示了如何找到watir-webdriver这个菜单项。其处理方法是先点击info按钮，然后等到下拉菜单出现后定位下拉菜单的ul元素，再定位ul元素中link text为watir-webdriver的link，并点击之。
 ### button_dropdown.html
 ```
-	<html>
-		<head>
-			<meta http-equiv="content-type" content="text/html;charset=utf-8" />
-			<title>button group</title>		
-			<script type="text/javascript" async="" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-			<link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" />		
-			<script type="text/javascript">
-				$(document).ready(function(){
-					$('.btn').click(function(){
-						alert($(this).text());
-					});
-				});			
-			</script>
-		</head>
-		<body>
-			<h3>button group</h3>
-			<div class="row-fluid">
-				<div class="span3">		
-					<div class="well">
-						<div class="btn-toolbar">
-							<div class="btn-group">
-								<div class="btn">first</div>
-								<div class="btn">second</div>
-								<div class="btn">third</div>
-							</div>
-						</div>
-					</div>			
-				</div>		
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+		<title>button dropdown</title>		
+		<script type="text/javascript" async="" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+		<link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" />		
+		<script type="text/javascript">
+			$(document).ready(
+				function(){
+					$('.dropdown-menu').find('a').first().click(function(){ alert('watir-webdriver is better than selenium-webdriver'); });
+				}
+			);
+		</script>
+	</head>
+	<body>
+		<h3>button dropdown</h3>
+		<div class="row-fluid">
+			<div class="span3">		
+				<div class="well">
+					<div class="btn-group">
+						<a class="btn dropdown-toggle btn-info" data-toggle="dropdown" href="#">
+							Info
+							<span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu">
+							<li><a href="#">watir-webdriver</a></li>
+							<li><a href="#">better than</a></li>
+							<li><a href="#">selenium-webdriver</a></li>
+						</ul>
+					</div>
+				</div>			
 			</div>		
-		</body>
-		<script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
-	</html>
+		</div>		
+	</body>
+	<script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+</html>
 ```
 
 ### button_dropdown.py
