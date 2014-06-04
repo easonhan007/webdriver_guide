@@ -2,7 +2,7 @@ webdriver实用指南ruby版本
 =========================
 
 不用担心，html版本的《webdriver实用指南ruby版本》是 __永久免费__ 的。
-如果你觉得这本书还可以，点击[这里](http://item.taobao.com/item.htm?id=21229123352)可以购买[pdf版本](http://item.taobao.com/item.htm?id=21229123352)(5元)，本书的[配套视频教程ruby版本](http://item.taobao.com/item.htm?id=26171596869)也已经上架。
+
 
 目录如下
 ========
@@ -45,7 +45,7 @@ webdriver实用指南java版本
 =========================
 
 不用担心，html版本的《webdriver实用指南java版本》是 __永久免费__ 的。
-如果你喜欢本书，可以购买[pdf版本](http://item.taobao.com/item.htm?id=21296527347),15元。
+
 
 目录如下
 ========
