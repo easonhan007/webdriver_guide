@@ -55,7 +55,7 @@ link = dr.find_element_by_id('tooltip')
 
 sleep(1)
 # 获得tooltip的内容
-print link.get_attribute('data-original-title')
+print link.get_attribute('title')
 
 # 获取该链接的text
 print link.text
