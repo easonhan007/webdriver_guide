@@ -64,7 +64,7 @@ form的操作
 	</html>
 ```
 
-### form.rb
+### form.py
 ```
 # -*- coding: utf-8 -*- 
 from selenium import webdriver
