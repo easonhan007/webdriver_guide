@@ -23,7 +23,7 @@
 		public static void main(String[] args) {
 			WebDriver dr = new ChromeDriver();
 			System.out.println("browser will be closed");
-			
+			dr.manage().window().setSize(new Dimension(320, 240));
 			dr.quit();	
 			System.out.println("browser is closed");
 		}
