@@ -2,6 +2,10 @@
 
 几年前我在github上写了webdriver实用指南，由于github本身设计的目的是为了承载代码，而不是承载书籍，用户观感不佳，所以现在将其重构至gitbook。
 
+我的blog是[乙醇的blog](http://www.cnblogs.com/nbkhic)
+
+如果你自学困难，想要找人辅导，与一群小伙伴一同学习的话，你可以看一下[我们的课程](http://itest.info/courses)
+
 ## 内容预览
 
 ### python篇
