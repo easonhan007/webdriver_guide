@@ -17,3 +17,5 @@
 # Ignore vim swp files.
 *.swp
 
+/_book
+

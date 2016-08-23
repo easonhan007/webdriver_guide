@@ -14,7 +14,7 @@
 下面的代码演示了如何获取分页的总数以及当前是第几页
 
 ### pagination.html
-```
+```html
 	<html>
 		<head>
 			<meta http-equiv="content-type" content="text/html;charset=utf-8" />
@@ -30,7 +30,7 @@
 				});
 			</script>
 		</head>
-			
+
 		<body>
 			<h3>Pagination</h3>
 			<div class="row-fluid">
@@ -51,11 +51,11 @@
 		</body>
 		<script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
 	</html>
-	
+
 ```
 
 ### pagination.rb
-```
+```ruby
 	#encoding: utf-8
 	require 'selenium-webdriver'
 
@@ -73,4 +73,3 @@
 	puts "current page is #{current_page.text}"
 	dr.quit()
 ```
-

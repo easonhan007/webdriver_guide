@@ -16,22 +16,22 @@
 
 只需要2步就可以安装完毕。
 
-### 安装[active-python](http://www.activestate.com/activepython/)
+**安装[active-python](http://www.activestate.com/activepython/)**
 
 从[这里](http://www.activestate.com/activepython/downloads)下载active python2.7.5的windows安装版本，注意，如果是64位系统，则需要选择(64-bit, x64)版本下载。
 
 双击打开下载的文件，直接下一步安装既可，很简单,什么都不需要更改。
 
-#### 注意，如果你的机器安装了360转坑小白伪杀毒工具的话，请关闭360再进行安装。
+*注意，如果你的机器安装了360等专坑小白伪杀毒工具的话，请关闭360再进行安装。*
 
-### 安装selenium webdriver
+**安装selenium webdriver**
 
 打开命令行cmd，输入下面的命令
 
 	pip install selenium
 
 回车后，你会看到下面的提示
-	
+
 	Downloading/unpacking selenium
 		Downloading selenium-2.38.1.tar.gz (2.5MB): 2.5MB downloaded
 		Running setup.py egg_info for package selenium
@@ -43,5 +43,3 @@
 	Cleaning up...
 
 现在大功告成，python的webdriver之旅即将展开。
-
-
