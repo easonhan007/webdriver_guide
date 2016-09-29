@@ -4,7 +4,7 @@
 
 在处理下拉框(select)的时候selenium给我们提供了一系列的便捷方法，我们只需要使用```selenium.webdriver.support.select.Select```类来稍微封装一下就好了。
 
-源代码在(这里)[https://github.com/SeleniumHQ/selenium/blob/master/py/selenium/webdriver/support/select.py]
+源代码在[这里](https://github.com/SeleniumHQ/selenium/blob/master/py/selenium/webdriver/support/select.py)
 
 下面是我们经常会用到的一些方法
 
