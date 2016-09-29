@@ -45,6 +45,7 @@
 * [超时设置](/30/timeout.py.md)
 * [Remote Webdriver](/31/remote.md)
 * [cookie与自动登陆](/32/cookie.py.md)
+* [Expected Conditions与动态等待](/34/expected_conditions.py.md)
 
 -----------------------------------------------------------
 
