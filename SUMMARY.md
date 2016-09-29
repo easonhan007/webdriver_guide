@@ -166,3 +166,12 @@
   * [python篇](32/cookie.py.md)
   * [Ruby篇](32/cookie.md)
   * [Java篇](32/cookie.java.md)
+
+* 33: 切换窗口
+  * [python篇](33/switch_window.py.md)
+
+* 34: Expected Conditions与动态等待
+  * [python篇](34/expected_conditions.py.md)
+
+* 35: 处理下拉框
+  * [python篇](35/select.py.md)
