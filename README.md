@@ -47,6 +47,7 @@
 * [cookie与自动登陆](/32/cookie.py.md)
 * [切换窗口](/33/switch_window.py.md)
 * [Expected Conditions与动态等待](/34/expected_conditions.py.md)
+* [处理下拉框](/35/select.py.md)
 
 -----------------------------------------------------------
 
