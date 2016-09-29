@@ -15,7 +15,7 @@ action
 * click_and_hold。鼠标左键点击住不放
 * release。鼠标左键弹起，可以与click_and_hold配合使用
 * move_to_element。把鼠标移动到元素的中心点
-* content_click。鼠标右键点击
+* context_click。鼠标右键点击
 * drag_and_drop。拖拽
 
 
